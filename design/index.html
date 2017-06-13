@@ -1,0 +1,1260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/>
+    <meta name="viewport" content="width=device-width; initial-scale=1.0"/>
+    <title>Azbooking</title>
+
+    <meta name="description" content="Azbooking"/>
+    <meta name="keywords" content="Azbooking"/>
+    <link rel="shortcut icon" href="" type="image/x-icon"/>
+    <link rel="stylesheet" href="theme/css/rs-wp-v1.2.css" type="text/css"/>
+    <link rel="stylesheet/less" href="theme/style.css" type="text/css"/>
+    <link rel="stylesheet/less" href="theme/style_tt.css" type="text/css"/>
+    <link rel="stylesheet/less" href="theme/style.less" type="text/css"/>
+    <link rel="stylesheet/less" href="theme/css/animate.css" type="text/css"/>
+    <link rel="stylesheet/less" href="theme/css/bootstrap/css/bootstrap.css" type="text/css"/>
+
+    <script type="text/javascript" src="theme/js/jquery-1.11.0.js"></script>
+    <script type="text/javascript" src="theme/js/custom-script.js"></script>
+    <script type="text/javascript" src="theme/js/bootstrap3-typeahead.min.js"></script>
+    <script type="text/javascript" src="theme/js/less.min.js"></script>
+    <script type="text/javascript" src="theme/js/core.0.5.0.min.js"></script>
+    <script type="text/javascript" src="theme/css/bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="theme/js/isotope.pkgd.min.js"></script>
+    <script type="text/javascript" src="theme/js/jquery.lightbox_me.js"></script>
+
+    <!-- Jquery UI -->
+    <script type="text/javascript" src="theme/css/jquery-ui.css"></script>
+    <script type="text/javascript" src="theme/js/jquery-ui.js"></script>
+
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="theme/js/font-awesome/css/font-awesome.min.css">
+
+
+    <!-- Owl Carousel Assets -->
+    <link href="theme/css/owl.carousel.css" rel="stylesheet">
+    <link href="theme/css/owl.theme.css" rel="stylesheet">
+    <script type="text/javascript" src="theme/js/owl.carousel.min.js"></script>
+    <link rel="stylesheet" href="theme/css/jquery-ui.css">
+    <script type='text/javascript'>window._sbzq || function (e) {
+        e._sbzq = [];
+        var t = e._sbzq;
+        t.push(["_setAccount", 24208]);
+        var n = e.location.protocol == "https:" ? "https:" : "http:";
+        var r = document.createElement("script");
+        r.type = "text/javascript";
+        r.async = true;
+        r.src = n + "//static.subiz.com/public/js/loader.js";
+        var i = document.getElementsByTagName("script")[0];
+        i.parentNode.insertBefore(r, i)
+    }(window);</script>
+
+    <!-- Fancy Box -->
+    <script type="text/javascript" src="theme/js/fancybox/jquery.fancybox.js"></script>
+    <link href="theme/js/fancybox/jquery.fancybox.css" rel="stylesheet">
+</head>
+<body>
+<div id="fb-root"></div>
+<script>(function (d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s);
+    js.id = id;
+    js.src = "//connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v2.4&appId=306238306156204";
+    fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script><!-- Go to www.addthis.com/dashboard to customize your tools -->
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-525b53f205641cd4"
+        async="async"></script>
+<div id="sign_up"
+     style="background: url('theme/images/dangnhap.png'); background-size: 100%;display: none;height: 57%; margin-left: -223px; z-index: 1002; position: absolute; top: 355px; margin-top: 0px; ">
+    <p style="width: 70%; font-size: 12px; height: 35px">Đăng nhập để nhận được nhiều ưu đãi cùng các chương trình
+        khuyến mãi của TOURCOACH</p>
+    <div class="inputdn"><input type="email" id="email_dn" placeholder="Email" style="color: #555;padding: 0px 10px"
+                                name="">
+        <span class="add-on"><i class="fa fa-envelope"></i></span><input type="password" id="pass_dn" placeholder="Password" name="" style="color: #555;padding: 0px 10px"><span
+            class="add-on2"><i class="fa fa-lock"></i></span><span
+            style="width: 120px; float: left; font-size: 12px; margin-top: 10px; margin-right: 20px;">
+            <a href="http://localhost/pi_maybay.dang-ky-thanh-vien.html" style="color: #70d572">Đăng ký</a> là thành viên của Tourcoach</span><input
+            style="width: 116px; margin-right: 0px;margin-top: 10px;margin-bottom: 10px" type="submit" class="register"
+            id="dangnha_aj" name="dangkytv" value="Đăng nhập">
+        <p style="text-align: center; padding-top: 20px; padding-bottom: 10px">Hoặc đăng nhập bằng tài khoản</p><a
+                style="margin-right: 16px" href="http://localhost/pi_maybay/dang-nhap-facebook/"><img
+                src="http://localhost/pi_maybay/view/default/theme/images/face.png" title="Facebook" alt="Facebook"></a><a
+                href=""><img src="http://localhost/pi_maybay/view/default/theme/images/google.png" title="Google"
+                             alt="Google"></a></div>
+    <script>$(document).ready(function () {
+        $("#dangnha_aj").click(function () {
+        })
+        $("#pass_dn").keypress(function (event) {
+            var keycode = (event.keyCode ? event.keyCode : event.which);
+            if (keycode == "13") {
+                var email = $('#email_dn').val();
+                var pass = $('#pass_dn').val();
+                $.ajax(
+                    {
+                        type: "get",
+                        url: "http://localhost/pi_maybay/controller/default/dangnhap.php",
+                        data: "email=" + email + "&pass=" + pass,
+                        success: function (love) {
+                            $('.dangnhap_act').html(love)
+                        }
+                    }
+                )
+            }
+        });
+    });</script>
+    <div class="dangnhap_act"></div>
+</div>
+<header id="header">
+    <div class="top-nav">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 col-xs-12 col-lg-4 col-sm-12">
+                    <marquee behavior="scroll" direction="left"><h2>Vé máy bay, đặt mua vé máy bay tại đại lý vé máy bay
+                        Tourcoach cam kết giá rẻ nhất</h2></marquee>
+                </div>
+                <div class="col-md-8 col-xs-12 col-sm-12">
+                    <ul class="menu-right">
+                        <li><a href="http://localhost/pi_maybay/gioi-thieu.html"><i class="fa fa-user"></i> Về chúng tôi</a>
+                        </li>
+                        <li><a href="http://localhost/pi_maybay/lien-he.html"><i class="fa fa-envelope"></i> Liên hệ</a>
+                        </li>
+                        <li><a href="http://localhost/pi_maybay/hoi-dap.html"><i class="fa fa-comment"></i> Hỏi đáp</a>
+                        </li>
+                        <li><a href="javascript:void()" id="try-1"><i class="fa fa-sign-in"></i> Đăng nhập</a></li>
+                        <li><a href="http://localhost/pi_maybay/dang-ky.html"><i class="fa fa-pencil-square-o"></i> Đăng
+                            ký</a></li>
+                        <script type="text/javascript" charset="utf-8">$(function () {
+                            function launch() {
+                                $('#sign_up').lightbox_me({
+                                    centered: true, onLoad: function () {
+                                        $('#sign_up').find('input:first').focus()
+                                    }
+                                });
+                            }
+
+                            $('#try-1').click(function (e) {
+                                $("#sign_up").lightbox_me({
+                                    centered: true, preventScroll: true, onLoad: function () {
+                                        $("#sign_up").find("input:first").focus();
+                                    }
+                                });
+                                e.preventDefault();
+                            });
+                            $('table tr:nth-child(even)').addClass('stripe');
+                        });</script>
+                        <script>$(document).ready(function () {
+                            $("#vn").click(function () {
+                                var giatri = 1;
+                                $.ajax(
+                                    {
+                                        type: "get",
+                                        url: "http://localhost/pi_maybay/controller/default/ngonngu.php",
+                                        data: "giatri=" + giatri,
+                                        success: function (love) {
+                                            $('.hien').html(love)
+                                        }
+                                    }
+                                )
+                            })
+                        });
+                        $(document).ready(function () {
+                            $("#kr").click(function () {
+                                var giatri = 2;
+                                $.ajax(
+                                    {
+                                        type: "get",
+                                        url: "http://localhost/pi_maybay/controller/default/ngonngu.php",
+                                        data: "giatri=" + giatri,
+                                        success: function (love) {
+                                            $('.hien').html(love)
+                                        }
+                                    }
+                                )
+                            })
+                        });</script>
+                       
+                        <div class="hien"></div>
+                    </ul>
+                    <div class="top-search">
+                        <form action="http://localhost/pi_maybay/tim-kiem" method="post"><input type="text"
+                                                                                                class="text-search"
+                                                                                                name="giatri" value=""
+                                                                                                placeholder="Tìm kiếm..."><input
+                                type="button" class="bnt-search" value="Tìm kiếm"></form>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="top-header">
+        <div class="container">
+            <div class="toogle-menu">Menu<a href="#"><span></span><span></span><span></span></a></div>
+            <div class="logo"><a href="http://localhost/pi_maybay"><img
+                    src="theme/images/logo.jpg"
+                    alt="CÔNG TY TNHH DỊCH VỤ - VẬN TẢI VÀ LỮ HÀNH QUỐC TẾ COACH"
+                    title="CÔNG TY TNHH DỊCH VỤ - VẬN TẢI VÀ LỮ HÀNH QUỐC TẾ COACH"> </a></div>
+            <div class="hot-line"><p>HOTLINE ĐẶT VÉ 24/7<span>043-2222-143</span></p></div>
+            <div class="main-menu">
+                <ul>
+                    <li class="active"><a href="http://localhost/pi_maybay">Trang chủ</a></li>
+                    <li class=""><a href="http://localhost/pi_maybay/gioi-thieu.html">Giới thiệu</a></li>
+                    <li class=""><a href="http://localhost/pi_maybay/ve-noi-dia/">Vé nội địa</a></li>
+                    <li class=""><a href="http://localhost/pi_maybay/ve-quoc-te/">Vé quốc tế</a></li>
+                    <li class=""><a href="http://localhost/pi_maybay/dich-vu/">Dịch vụ</a></li>
+                    <li class=""><a href="http://localhost/pi_maybay/tin-khuyen-mai/">Tin khuyến mãi</a></li>
+                </ul>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+    <div class="top-page home-page">
+        <div class="container">
+            <div class="row row-no-padding">
+                <div class="book-ticket col-lg-8 col-md-12 col-sm-12"><h3 class="title-dat-ve">ĐẶT VÉ MÁY BAY</h3>
+                    <form class="form" action="http://localhost/pi_maybay/tim-kiem-chuyen-bay/" method="post">
+                        <div class="fields row">
+                            <div class="col-md-12 col-sm-12"><input type="radio" name="RoundTrip" value="true"
+                                                                    id="ve-khu-hoi" checked=""><label
+                                    for="ve-khu-hoi"><span></span>Vé khứ hồi</label><input type="radio" name="RoundTrip"
+                                                                                           value="false"
+                                                                                           id="ve-mot-chieu"><label
+                                    for="ve-mot-chieu"><span></span>Vé một chiều</label></div>
+                        </div>
+                        <div class="row row-padding-10">
+                            <div class="col-md-4 col-sm-12 chon-dia-diem"><p>Điểm đi</p><input type="text"
+                                                                                               class="chuyen-bay chieu-di"
+                                                                                               id="chieu-di"
+                                                                                               value="Hà Nội"
+                                                                                               name="TFromPlace"><input
+                                    id="hide-chieu-di" type="hidden" name="FromPlace" value="HAN"></div>
+                            <div class="col-md-4 col-sm-12"><p>Điểm đến</p><input type="text"
+                                                                                  class="chuyen-bay chieu-ve"
+                                                                                  id="chieu-ve" value="Hồ Chí Minh"
+                                                                                  name="TToPlace"><input
+                                    id="hide-chieu-ve" type="hidden" name="ToPlace" value="SGN"></div>
+                            <div class="col-md-4 col-sm-12 date">
+                                <div class="row row-padding-10">
+                                    <div class="col-md-6 col-sm-12"><p>Ngày đi</p><input type="text"
+                                                                                         class="chuyen-bay hasDatepicker"
+                                                                                         id="ngay-di" value="16/06/2017"
+                                                                                         name="DepartDate"></div>
+                                    <div class="col-md-6 col-sm-12"><p>Ngày về</p><input type="text"
+                                                                                         class="chuyen-bay hasDatepicker"
+                                                                                         id="ngay-ve" value="17/06/2017"
+                                                                                         name="ReturnDate"></div>
+                                </div>
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>
+                        <div class="row row-padding-10">
+                            <div class="col-md-4 col-sm-12"><p>Class</p>
+                                <div class="quy-danh"><label><select class="inputselect_box" name="">
+                                    <option value="Economy">Economy</option>
+                                    <option value="Economy">Economy</option>
+                                </select></label>
+                                    <div class="clearfix"></div>
+                                </div>
+                            </div>
+                            <div class="col-md-2 col-sm-12"><p>Người lớn (&gt;12)</p>
+                                <div><a class="sub" href="#">-</a><select class="nguoi-lon" id="nguoi-lon" name="adult">
+                                    <option selected="" value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                    <option value="6">6</option>
+                                    <option value="7">7</option>
+                                    <option value="8">8</option>
+                                    <option value="9">9</option>
+                                    <option value="10">10</option>
+                                    <option value="11">11</option>
+                                    <option value="12">12</option>
+                                    <option value="13">13</option>
+                                    <option value="14">14</option>
+                                    <option value="15">15</option>
+                                </select><a class="sum" href="#">+</a>
+                                    <div class="clearfix"></div>
+                                </div>
+                            </div>
+                            <div class="col-md-2 col-sm-12"><p>Trẻ em (2&gt;12)</p>
+                                <div><a class="sub" href="#">-</a><select class="tre-em" id="tre-em" value="0"
+                                                                          name="child">
+                                    <option selected="" value="0">0</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                    <option value="6">6</option>
+                                    <option value="7">7</option>
+                                    <option value="8">8</option>
+                                    <option value="9">9</option>
+                                    <option value="10">10</option>
+                                    <option value="11">11</option>
+                                    <option value="12">12</option>
+                                    <option value="13">13</option>
+                                    <option value="14">14</option>
+                                    <option value="15">15</option>
+                                </select><a class="sum" href="#">+</a>
+                                    <div class="clearfix"></div>
+                                </div>
+                            </div>
+                            <div class="col-md-2 col-sm-12"><p>Sơ sinh(0&gt;2)</p>
+                                <div><a class="sub" href="#">-</a><select class="so-sinh" id="so-sinh" value="0"
+                                                                          name="infant">
+                                    <option selected="" value="0">0</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                    <option value="6">6</option>
+                                    <option value="7">7</option>
+                                    <option value="8">8</option>
+                                    <option value="9">9</option>
+                                    <option value="10">10</option>
+                                    <option value="11">11</option>
+                                    <option value="12">12</option>
+                                    <option value="13">13</option>
+                                    <option value="14">14</option>
+                                    <option value="15">15</option>
+                                </select><a class="sum" href="#">+</a>
+                                    <div class="clearfix"></div>
+                                </div>
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>
+                        <div class="row row-padding-10">
+                            <div class="col-md-6 col-sm-12 tim-kiem"><p><input type="submit" value="Tìm chuyến bay"
+                                                                               name="bntTimKiem"></p></div>
+                            <div class="col-md-6 col-sm-12 logo-coarch"><a href="#"><img
+                                    src="http://localhost/pi_maybay/view/default/theme/images/logo-coach.jpg"
+                                    alt=""></a></div>
+                        </div>
+                    </form>
+                </div>
+                <div class="advs top-adv col-lg-4"><a class="visible-lg-block" href=""><img
+                        src="theme/images/adv-1.jpg" alt="Đặt vé"
+                        title="Đặt vé"></a></div>
+            </div>
+        </div>
+    </div>
+</header>
+<section class="content-area container">
+    <div class="cac-tieu-chi">
+        <div class="row row-padding-15">
+            <div class="col-md-4 col-sm-12 tieu-chi">
+                <div class="inner-content"
+                     style="background: #F25163 url('theme/images/bg-panel-1.jpg') no-repeat bottom left 25px;">
+                    <h2 class="title">Chất lượng dịch vụ hàng đầu</h2>
+                    <p class="excerpt">Hỗ trợ tận tình - chu đáo 24/7 Dịch vụ tin cậy - giá trị đích thực Luôn có khuyến
+                        mãi và quà tặng</p></div>
+            </div>
+            <div class="col-md-4 col-sm-12 tieu-chi">
+                <div class="inner-content"
+                     style="background: #67C6DC url('theme/images/bg-panel-2.jpg') no-repeat bottom left 25px;">
+                    <h2 class="title">VÉ MÁY BAY GIÁ RẺ NHẤT</h2>
+                    <p class="excerpt">Tourcoach luôn cung cấp vé máy bay giá rẻ nhất của các hãng như VietJet, Jetstar
+                        và Vietnam Airlines...</p></div>
+            </div>
+            <div class="col-md-4 col-sm-12 tieu-chi">
+                <div class="inner-content"
+                     style=" background: #FDCA4B url('theme/images/bg-panel-3.jpg') no-repeat bottom left 25px;">
+                    <h2 class="title">Thanh toán dễ dàng tiện lợi</h2>
+                    <p class="excerpt">Bạn có thể thanh toán trực tuyến ngay sau khi đặt vé hoặc thanh toán tại văn
+                        phòng của Tourcoach</p></div>
+            </div>
+        </div>
+    </div>
+    <div class="group-mb">
+        <div class="row">
+            <div class="col-md-7 col-sm-12 col-xs-12 ve-hot">
+                <div class="tab-group">
+                    <ul>
+                        <li rel="ve-noi-dia" class="active"><a href="#">Vé nội địa</a></li>
+                        <li rel="ve-quoc-te"><a href="#">Vé quốc tế</a></li>
+                    </ul>
+                    <div class="ve-hot-icon"></div>
+                </div>
+                <div class="clearfix"></div>
+                <div class="group-content">
+                    <table class="list-ve ve-noi-dia">
+                        <tbody>
+                        <tr>
+                            <td><img
+                                    src="theme/images/VietJetAir(1).png"
+                                    alt="Vé máy bay đi Huế"></td>
+                            <td>VN354</td>
+                            <td>26-07-2015</td>
+                            <td><span class="chieu-di">Hà Nội</span><span class="chieu-ve">Huế</span></td>
+                            <td>1.670.000 VNĐ</td>
+                            <td><a href="http://localhost/pi_maybay/ve-noi-dia/ve-may-bay-di-hue-39.html"><span>Chi tiết »</span></a>
+                            </td>
+                        </tr>
+                        <tr class="stripe">
+                            <td><img
+                                    src="theme/images/VietnamAirlines.png"
+                                    alt="Vé máy bay đi Vinh"></td>
+                            <td>VN357</td>
+                            <td>26-07-2015</td>
+                            <td><span class="chieu-di">Hà Nội</span><span class="chieu-ve">Vinh</span></td>
+                            <td>1.670.000 VNĐ</td>
+                            <td><a href="http://localhost/pi_maybay/ve-noi-dia/ve-may-bay-di-vinh-38.html"><span>Chi tiết »</span></a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><img
+                                    src="theme/images/VietnamAirlines.png"
+                                    alt="Vé máy bay đi Phú Quốc"></td>
+                            <td>VN354</td>
+                            <td>16-07-2015</td>
+                            <td><span class="chieu-di">Hà Nội</span><span class="chieu-ve">Phú Quốc</span></td>
+                            <td>1.670.000 VNĐ</td>
+                            <td><a href="http://localhost/pi_maybay/ve-noi-dia/ve-may-bay-di-phu-quoc-5.html"><span>Chi tiết »</span></a>
+                            </td>
+                        </tr>
+                        <tr class="stripe">
+                            <td><img
+                                    src="theme/images/VietJetAir(1).png"
+                                    alt="Vé máy bay đi Cần Thơ"></td>
+                            <td>VN355</td>
+                            <td>19-07-2015</td>
+                            <td><span class="chieu-di">Hồ Chí Minh</span><span class="chieu-ve">Cần Thơi</span></td>
+                            <td>1.670.000 VNĐ</td>
+                            <td><a href="http://localhost/pi_maybay/ve-noi-dia/ve-may-bay-di-can-tho-4.html"><span>Chi tiết »</span></a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><img
+                                    src="theme/images/VietnamAirlines.png"
+                                    alt="Vé máy bay đi Đà Lạt"></td>
+                            <td>VN357</td>
+                            <td>24-07-2015</td>
+                            <td><span class="chieu-di">Hà Nội</span><span class="chieu-ve">Đà Lạt</span></td>
+                            <td>1.670.000 VNĐ</td>
+                            <td><a href="http://localhost/pi_maybay/ve-noi-dia/ve-may-bay-di-da-lat-3.html"><span>Chi tiết »</span></a>
+                            </td>
+                        </tr>
+                        <tr class="stripe">
+                            <td><img
+                                    src="theme/images/VietnamAirlines.png"
+                                    alt="Vé máy bay đi Đà Nẵng"></td>
+                            <td>VN365</td>
+                            <td>25-07-2015</td>
+                            <td><span class="chieu-di">Hà Nội</span><span class="chieu-ve">Đà Nẵng</span></td>
+                            <td>1.670.000 VNĐ</td>
+                            <td><a href="http://localhost/pi_maybay/ve-noi-dia/ve-may-bay-di-da-nang-2.html"><span>Chi tiết »</span></a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><img
+                                    src="theme/images/VietnamAirlines.png"
+                                    alt="Vé máy bay đi Nha Trang"></td>
+                            <td>VN456</td>
+                            <td>17-07-2015</td>
+                            <td><span class="chieu-di">Hà Nội</span><span class="chieu-ve">Nha Trang</span></td>
+                            <td>1.670.000 VNĐ</td>
+                            <td><a href="http://localhost/pi_maybay/ve-noi-dia/ve-may-bay-di-nha-trang-1.html"><span>Chi tiết »</span></a>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                    <table class="list-ve ve-quoc-te">
+                        <tbody>
+                        <tr>
+                            <td><img
+                                    src="theme/images/VietnamAirlines.png"
+                                    alt="Vé máy bay đi hongkong"></td>
+                            <td>QT356</td>
+                            <td>26-07-2015</td>
+                            <td><span class="chieu-di">Hà Nội</span><span class="chieu-ve">Hong Kong</span></td>
+                            <td>1.670.000 VNĐ</td>
+                            <td><a href="http://localhost/pi_maybay/ve-quoc-te/ve-may-bay-di-hongkong-42.html"><span>Chi tiết »</span></a>
+                            </td>
+                        </tr>
+                        <tr class="stripe">
+                            <td><img
+                                    src="theme/images/VietJetAir(1).png"
+                                    alt="Vé máy bay đi singapore"></td>
+                            <td>QT350</td>
+                            <td>19-07-2015</td>
+                            <td><span class="chieu-di">Hà Nội</span><span class="chieu-ve">Singapore</span></td>
+                            <td>1.670.000 VNĐ</td>
+                            <td><a href="http://localhost/pi_maybay/ve-quoc-te/ve-may-bay-di-singapore-41.html"><span>Chi tiết »</span></a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><img
+                                    src="theme/images/VietnamAirlines.png"
+                                    alt="Vé máy bay đi Bangkok"></td>
+                            <td>QT130</td>
+                            <td>18-07-2015</td>
+                            <td><span class="chieu-di">Hà Nội</span><span class="chieu-ve">Bangkok</span></td>
+                            <td>1.670.000 VNĐ</td>
+                            <td><a href="http://localhost/pi_maybay/ve-quoc-te/ve-may-bay-di-bangkok-40.html"><span>Chi tiết »</span></a>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="col-md-5 col-sm-12 col-xs-12 support box"><h2 class="title">HỖ TRỢ ĐẶT VÉ TRỰC TUYẾN</h2>
+                <div class="support-panel call"><h3>Gọi điện thoại cho Tourcoach</h3>
+                    <div class="hotline-support"><p>Hotline hỗ trợ 24/7<span>043-2222-143</span></p></div>
+                </div>
+                <div class="support-panel chat"><h3>Chát với đội ngũ chăm sóc của Tourcoach<span>Tư vấn hỗ trợ khách hàng về dịch vụ của Tourcoach</span>
+                </h3>
+                    <div class="list-supports row">
+                        <div class="col-md-3 col-sm-12 col-xs-12"><span>Dịch vụ khác</span></div>
+                        <div class="col-md-9 col-sm-12 col-xs-12">
+                            <ul class="skype-list">
+                                <li><a href="Skype:tungphongtom?chat">Mr Thế<span>094.998.0762</span></a></li>
+                                <li><a href="Skype:tungphongtom?chat">Mr Thế<span>094.998.0762</span></a></li>
+                                <li><a href="Skype:tungphongtom?chat">Mr Thế<span>094.998.0762</span></a></li>
+                                <li><a href="Skype:tungphongtom?chat">Mr Thế<span>094.998.0762</span></a></li>
+                            </ul>
+                            <div class="clearfix"></div>
+                        </div>
+                    </div>
+                    <div class="list-supports row">
+                        <div class="col-md-3 col-sm-12 col-xs-12"><span>Vé máy bay</span></div>
+                        <div class="col-md-9 col-sm-12 col-xs-12">
+                            <ul class="skype-list">
+                                <li><a href="Skype:tungphongtom?chat">Mr Thế<span>094.998.0762</span></a></li>
+                                <li><a href="Skype:tungphongtom?chat">Mr Thế<span>094.998.0762</span></a></li>
+                            </ul>
+                            <div class="clearfix"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="support-panel connect-social"><h3>Hoặc kết nối với Tourcoach qua mạng xã hội</h3>
+                    <ul class="social-list">
+                        <li class="facebook"><a href="http://www.facebook.com/vifonic?fref=ts"></a></li>
+                        <li class="twitter"><a href="http://www.twitter.com/vifonic"></a></li>
+                        <li class="googleplus"><a href="https://plus.google.com/vifonic"></a></li>
+                        <li class="youtube"><a href="https://www.youtube.com/vifonic"></a></li>
+                        <li class="linkedin"><a href="http://feeds.feedburner.com/vifonic"></a></li>
+                        <li class="kakaostory"><a href="#"></a></li>
+                    </ul>
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="services-tourcouch box"><h2 class="title">DỊCH VỤ CỦA TOURCOACH</h2>
+        <div class="servies-us row">
+            <div class="col-md-3 col-sm-4 col-xs-12 img-thumb"><img
+                    src="theme/images/img-post.jpg"
+                    alt="Giới thiệu về Tourcoach" title="Giới thiệu về Tourcoach"></div>
+            <div class="col-md-9 col-sm-8 col-xs-12 service-content"><h3>Giới thiệu về Tourcoach</h3>
+                <p>TOURCOACH chuyên cung cấp dịch vụ đặt vé máy bay trực tuyến của các hãng hàng không nội địa và quốc
+                    tế với các chức năng ưu việt: tìm kiếm hành trình bay, giờ bay, so sánh giá vé của các hãng hàng
+                    không, đặt vé trên website và thanh toán trực tuyến.
+                    Tourcoach được hành lập năm 2014 bởi CÔNG TY TNHH DỊCH VỤ - VẬN TẢI VÀ LỮ HÀNH QUỐC TẾ COACH, chúng
+                    tôi đã lựa chọn sứ mệnh phục vụ khách hàng mang đến những chuyến bay “Chi phí hợp lý – Chuyến đi như
+                    ý” - đó chính là sự khác biệt của Tourcoach.<a href="http://localhost/pi_maybay/gioi-thieu.html">xem
+                        chi tiết »</a></p><h4>Tại sao bạn nên chọn Tourcoach?</h4>
+                <ul class="cam-ket row">
+                    <li class="col-md-4 col-sm-6 col-xs-6"><a href="http://localhost/pi_maybay/gioi-thieu.html"><i
+                            class="fa fa-usd"></i>Đảm bảo giá tốt nhất</a></li>
+                    <li class="col-md-4 col-sm-6 col-xs-6"><a href="http://localhost/pi_maybay/gioi-thieu.html"><i
+                            class="fa fa-check"></i>Luôn có khuyến mãi và quà tặng</a></li>
+                    <li class="col-md-4 col-sm-6 col-xs-6"><a href="http://localhost/pi_maybay/gioi-thieu.html"><i
+                            class="fa fa-hand-o-right"></i>Thanh toán dễ dàng, đa dạng</a></li>
+                    <li class="col-md-4 col-sm-6 col-xs-6"><a href="http://localhost/pi_maybay/gioi-thieu.html"><i
+                            class="fa fa-search"></i>Tìm kiếm linh hoạt, dễ dàng</a></li>
+                    <li class="col-md-4 col-sm-6 col-xs-6"><a href="http://localhost/pi_maybay/gioi-thieu.html"><i
+                            class="fa fa-hand-o-right"></i>Dịch vụ tin cậy - giá trị đích thực</a></li>
+                    <li class="col-md-4 col-sm-6 col-xs-6"><a href="http://localhost/pi_maybay/gioi-thieu.html"><i
+                            class="fa fa-user"></i>Hỗ trợ tận tình - chu đáo 24/7</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="service-slider">
+            <div class="row wow">
+                <div class="owl-carousel owl-theme service-owl-carousel" style="display: block; opacity: 1;">
+                    <div class="owl-wrapper-outer">
+                        <div class="owl-wrapper"
+                             style="display: block; width: 4872px; left: 0px; transition: all 0ms ease; transform: translate3d(0px, 0px, 0px);">
+                            <div class="owl-item" style="width: 406px;">
+                                <div class="inner-item"><a
+                                        href="http://localhost/pi_maybay/dich-vu/combo-booking-1.html"> <img
+                                        class="post-thumb"
+                                        src="theme/images/dichvu1.png"
+                                        alt="Combo booking" title="Combo booking"></a>
+                                    <div class="inner-service"><a
+                                            href="http://localhost/pi_maybay/dich-vu/combo-booking-1.html"> <img
+                                            class="post-icon"
+                                            src="theme/images/icon/icon1.png"
+                                            alt="Combo booking" title="Combo booking"></a><a
+                                            href="http://localhost/pi_maybay/dich-vu/combo-booking-1.html"><h3>Combo
+                                        booking</h3></a>
+                                        <p>Nunc orci mi, venenatis quis ultrices vitae, congue non nibh. Nulla bibendum,
+                                            justo eget ultrices vestibulum, erat tortor venenatis risus, sit amet cursus
+                                            dui augue a arcu. </p>
+                                        <div class="ho-tro-online"><p class="call">Mrs Tuyến<span>094 998 0762</span>
+                                        </p>
+                                            <p style="background: none; padding-top: 0px" class="chat"><a
+                                                    style="margin-right: 10px" href="ymsgr:sendim?tvt_hut"><img
+                                                    src="http://localhost/pi_maybay/view/default/theme/images/yahoo.png"></a><a
+                                                    href="Skype:tungphongtom?chat"><img
+                                                    src="http://localhost/pi_maybay/view/default/theme/images/skype.png"></a><span
+                                                    style="display: block">tourcoach2013@gmail.com</span></p>
+                                            <div class="clearfix"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="owl-item" style="width: 406px;">
+                                <div class="inner-item"><a
+                                        href="http://localhost/pi_maybay/dich-vu/dat-phong-khach-san-2.html"> <img
+                                        class="post-thumb"
+                                        src="theme/images/dichvu2.png"
+                                        alt="Đặt phòng khách sạn" title="Đặt phòng khách sạn"></a>
+                                    <div class="inner-service"><a
+                                            href="http://localhost/pi_maybay/dich-vu/dat-phong-khach-san-2.html"> <img
+                                            class="post-icon"
+                                            src="theme/images/icon/icon2.png"
+                                            alt="Đặt phòng khách sạn" title="Đặt phòng khách sạn"></a><a
+                                            href="http://localhost/pi_maybay/dich-vu/dat-phong-khach-san-2.html"><h3>Đặt
+                                        phòng khách sạn</h3></a>
+                                        <p>Nunc orci mi, venenatis quis ultrices vitae, congue non nibh. Nulla bibendum,
+                                            justo eget ultrices vestibulum, erat tortor venenatis risus, sit amet cursus
+                                            dui augue a arcu. </p>
+                                        <div class="ho-tro-online"><p class="call">Mrs Tuyến<span>094 998 0762</span>
+                                        </p>
+                                            <p style="background: none; padding-top: 0px" class="chat"><a
+                                                    style="margin-right: 10px" href="ymsgr:sendim?tvt_hut"><img
+                                                    src="http://localhost/pi_maybay/view/default/theme/images/yahoo.png"></a><a
+                                                    href="Skype:tungphongtom?chat"><img
+                                                    src="http://localhost/pi_maybay/view/default/theme/images/skype.png"></a><span
+                                                    style="display: block">tourcoach2013@gmail.com</span></p>
+                                            <div class="clearfix"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="owl-item" style="width: 406px;">
+                                <div class="inner-item"><a href="http://localhost/pi_maybay/dich-vu/du-thuyen-3.html">
+                                    <img class="post-thumb"
+                                         src="theme/images/dichvu3.png"
+                                         alt="Du thuyền" title="Du thuyền"></a>
+                                    <div class="inner-service"><a
+                                            href="http://localhost/pi_maybay/dich-vu/du-thuyen-3.html"> <img
+                                            class="post-icon"
+                                            src="theme/images/icon/icon3.png"
+                                            alt="Du thuyền" title="Du thuyền"></a><a
+                                            href="http://localhost/pi_maybay/dich-vu/du-thuyen-3.html"><h3>Du
+                                        thuyền</h3></a>
+                                        <p>Nunc orci mi, venenatis quis ultrices vitae, congue non nibh. Nulla bibendum,
+                                            justo eget ultrices vestibulum, erat tortor venenatis risus, sit amet cursus
+                                            dui augue a arcu. </p>
+                                        <div class="ho-tro-online"><p class="call">Mrs Tuyến<span>094 998 0762</span>
+                                        </p>
+                                            <p style="background: none; padding-top: 0px" class="chat"><a
+                                                    style="margin-right: 10px" href="ymsgr:sendim?tvt_hut"><img
+                                                    src="http://localhost/pi_maybay/view/default/theme/images/yahoo.png"></a><a
+                                                    href="Skype:tungphongtom?chat"><img
+                                                    src="http://localhost/pi_maybay/view/default/theme/images/skype.png"></a><span
+                                                    style="display: block">tourcoach2013@gmail.com</span></p>
+                                            <div class="clearfix"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="owl-item" style="width: 406px;">
+                                <div class="inner-item"><a
+                                        href="http://localhost/pi_maybay/dich-vu/tour-du-lich-4.html"> <img
+                                        class="post-thumb"
+                                        src="theme/images/dichvu4.png"
+                                        alt="Tour du lịch" title="Tour du lịch"></a>
+                                    <div class="inner-service"><a
+                                            href="http://localhost/pi_maybay/dich-vu/tour-du-lich-4.html"> <img
+                                            class="post-icon"
+                                            src="theme/images/icon/icon4.png"
+                                            alt="Tour du lịch" title="Tour du lịch"></a><a
+                                            href="http://localhost/pi_maybay/dich-vu/tour-du-lich-4.html"><h3>Tour du
+                                        lịch</h3></a>
+                                        <p>Nunc orci mi, venenatis quis ultrices vitae, congue non nibh. Nulla bibendum,
+                                            justo eget ultrices vestibulum, erat tortor venenatis risus, sit amet cursus
+                                            dui augue a arcu. </p>
+                                        <div class="ho-tro-online"><p class="call">Mrs Tuyến<span>094 998 0762</span>
+                                        </p>
+                                            <p style="background: none; padding-top: 0px" class="chat"><a
+                                                    style="margin-right: 10px" href="ymsgr:sendim?tvt_hut"><img
+                                                    src="http://localhost/pi_maybay/view/default/theme/images/yahoo.png"></a><a
+                                                    href="Skype:tungphongtom?chat"><img
+                                                    src="http://localhost/pi_maybay/view/default/theme/images/skype.png"></a><span
+                                                    style="display: block">tourcoach2013@gmail.com</span></p>
+                                            <div class="clearfix"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="owl-item" style="width: 406px;">
+                                <div class="inner-item"><a
+                                        href="http://localhost/pi_maybay/dich-vu/dich-vu-van-tai-cho-thue-xe-5.html">
+                                    <img class="post-thumb"
+                                         src="theme/images/dichvu5.png"
+                                         alt="Dịch vụ vận tải - cho thuê xe" title="Dịch vụ vận tải - cho thuê xe"></a>
+                                    <div class="inner-service"><a
+                                            href="http://localhost/pi_maybay/dich-vu/dich-vu-van-tai-cho-thue-xe-5.html">
+                                        <img class="post-icon"
+                                             src="theme/images/icon/icon5.png"
+                                             alt="Dịch vụ vận tải - cho thuê xe" title="Dịch vụ vận tải - cho thuê xe"></a><a
+                                            href="http://localhost/pi_maybay/dich-vu/dich-vu-van-tai-cho-thue-xe-5.html">
+                                        <h3>Dịch vụ vận tải - cho thuê xe</h3></a>
+                                        <p>Nunc orci mi, venenatis quis ultrices vitae, congue non nibh. Nulla bibendum,
+                                            justo eget ultrices vestibulum, erat tortor venenatis risus, sit amet cursus
+                                            dui augue a arcu. </p>
+                                        <div class="ho-tro-online"><p class="call">Mrs Tuyến<span>094 998 0762</span>
+                                        </p>
+                                            <p style="background: none; padding-top: 0px" class="chat"><a
+                                                    style="margin-right: 10px" href="ymsgr:sendim?tvt_hut"><img
+                                                    src="http://localhost/pi_maybay/view/default/theme/images/yahoo.png"></a><a
+                                                    href="Skype:tungphongtom?chat"><img
+                                                    src="http://localhost/pi_maybay/view/default/theme/images/skype.png"></a><span
+                                                    style="display: block">tourcoach2013@gmail.com</span></p>
+                                            <div class="clearfix"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="owl-item" style="width: 406px;">
+                                <div class="inner-item"><a
+                                        href="http://localhost/pi_maybay/dich-vu/dat-ve-tau-hoa-6.html"> <img
+                                        class="post-thumb"
+                                        src="theme/images/dichvu6.png"
+                                        alt="Đặt vé tàu hỏa" title="Đặt vé tàu hỏa"></a>
+                                    <div class="inner-service"><a
+                                            href="http://localhost/pi_maybay/dich-vu/dat-ve-tau-hoa-6.html"> <img
+                                            class="post-icon"
+                                            src="theme/images/icon/icon6.png"
+                                            alt="Đặt vé tàu hỏa" title="Đặt vé tàu hỏa"></a><a
+                                            href="http://localhost/pi_maybay/dich-vu/dat-ve-tau-hoa-6.html"><h3>Đặt vé
+                                        tàu hỏa</h3></a>
+                                        <p>Nunc orci mi, venenatis quis ultrices vitae, congue non nibh. Nulla bibendum,
+                                            justo eget ultrices vestibulum, erat tortor venenatis risus, sit amet cursus
+                                            dui augue a arcu. </p>
+                                        <div class="ho-tro-online"><p class="call">Mrs Tuyến<span>094 998 0762</span>
+                                        </p>
+                                            <p style="background: none; padding-top: 0px" class="chat"><a
+                                                    style="margin-right: 10px" href="ymsgr:sendim?tvt_hut"><img
+                                                    src="http://localhost/pi_maybay/view/default/theme/images/yahoo.png"></a><a
+                                                    href="Skype:tungphongtom?chat"><img
+                                                    src="http://localhost/pi_maybay/view/default/theme/images/skype.png"></a><span
+                                                    style="display: block">tourcoach2013@gmail.com</span></p>
+                                            <div class="clearfix"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="owl-controls clickable">
+                        <div></div>
+                        <div class="owl-buttons">
+                            <div></div>
+                            <div class="owl-prev disabled">prev</div>
+                            <div class="owl-next">next</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="khuyen-mai box"><h2 class="title">Tin khuyến mãi</h2>
+        <div class="row">
+            <div class="owl-carousel owl-theme khuyen-mai-slider" id="khuyen-mai-slider"
+                 style="display: block; opacity: 1;">
+                <div class="owl-wrapper-outer">
+                    <div class="owl-wrapper"
+                         style="display: block; width: 4872px; left: 0px; transition: all 0ms ease; transform: translate3d(0px, 0px, 0px);">
+                        <div class="owl-item" style="width: 609px;">
+                            <div class="item"><a
+                                    href="http://localhost/pi_maybay/tin-khuyen-mai/ve-may-bay-gia-re-ha-noi-hong-kong-130usdkhu-hoi-4.html">
+                                <img class="img-thumb"
+                                     src="theme/images/thumb-khuyen-mai.jpg"
+                                     alt="Vé máy bay giá rẻ: Hà Nội - Hồng Kông: 130USD/Khứ hồi"
+                                     title="Vé máy bay giá rẻ: Hà Nội - Hồng Kông: 130USD/Khứ hồi"></a>
+                                <div class="inner-post"><h3 style=" overflow: hidden;
+white-space: nowrap;
+text-overflow: ellipsis;">Vé máy bay giá rẻ: Hà Nội - Hồng Kông: 130USD/Khứ hồi</h3>
+                                    <p>Vietnam Airlines trân trọng gửi đến khách hàng chương trình ưu đãi đặc biệt: Hà
+                                        Nội - Hồng Kông vé khứ hồi chỉ từ 130/USD. Mua ngay và cùng bay với Vietnam
+                                        Airlines.</p><a
+                                            href="http://localhost/pi_maybay/tin-khuyen-mai/ve-may-bay-gia-re-ha-noi-hong-kong-130usdkhu-hoi-4.html">Xem
+                                        chi tiết</a>
+                                    <div class="clearfix"></div>
+                                </div>
+                                <div class="clearfix"></div>
+                            </div>
+                        </div>
+                        <div class="owl-item" style="width: 609px;">
+                            <div class="item"><a
+                                    href="http://localhost/pi_maybay/tin-khuyen-mai/ve-may-bay-gia-re-ha-noi-thanh-do-69usdkhu-hoi-ha-noi-hong-kong-170usdkhu-hoi-3.html">
+                                <img class="img-thumb"
+                                     src="theme/images/thumb-khuyen-mai.jpg"
+                                     alt="Vé máy bay giá rẻ: Hà Nội - Thành Đô: 69USD/Khứ hồi; Hà Nội - Hồng Kông: 170USD/Khứ hồi"
+                                     title="Vé máy bay giá rẻ: Hà Nội - Thành Đô: 69USD/Khứ hồi; Hà Nội - Hồng Kông: 170USD/Khứ hồi"></a>
+                                <div class="inner-post"><h3 style=" overflow: hidden;
+white-space: nowrap;
+text-overflow: ellipsis;">Vé máy bay giá rẻ: Hà Nội - Thành Đô: 69USD/Khứ hồi; Hà Nội - Hồng Kông: 170USD/Khứ hồi</h3>
+                                    <p>Vietnam Airlines trân trọng gửi đến Quý khách hàng chương trình ưu đãi đặc biệt:
+                                        vé máy bay từ Hà Nội đi Thành Đô chỉ từ 69USD/Khứ hồi; Hà Nội đi Hồng Kông chỉ
+                                        từ...</p><a
+                                            href="http://localhost/pi_maybay/tin-khuyen-mai/ve-may-bay-gia-re-ha-noi-thanh-do-69usdkhu-hoi-ha-noi-hong-kong-170usdkhu-hoi-3.html">Xem
+                                        chi tiết</a>
+                                    <div class="clearfix"></div>
+                                </div>
+                                <div class="clearfix"></div>
+                            </div>
+                        </div>
+                        <div class="owl-item" style="width: 609px;">
+                            <div class="item"><a
+                                    href="http://localhost/pi_maybay/tin-khuyen-mai/ve-may-bay-gia-re-tu-viet-nam-di-singapore-malaysia-thai-lan-myanmmar-2.html">
+                                <img class="img-thumb"
+                                     src="theme/images/thumb-khuyen-mai.jpg"
+                                     alt="Vé máy bay giá rẻ từ Việt Nam đi Singapore/ Malaysia/ Thái Lan/ Myanmmar"
+                                     title="Vé máy bay giá rẻ từ Việt Nam đi Singapore/ Malaysia/ Thái Lan/ Myanmmar"></a>
+                                <div class="inner-post"><h3 style=" overflow: hidden;
+white-space: nowrap;
+text-overflow: ellipsis;">Vé máy bay giá rẻ từ Việt Nam đi Singapore/ Malaysia/ Thái Lan/ Myanmmar</h3>
+                                    <p></p><a
+                                            href="http://localhost/pi_maybay/tin-khuyen-mai/ve-may-bay-gia-re-tu-viet-nam-di-singapore-malaysia-thai-lan-myanmmar-2.html">Xem
+                                        chi tiết</a>
+                                    <div class="clearfix"></div>
+                                </div>
+                                <div class="clearfix"></div>
+                            </div>
+                        </div>
+                        <div class="owl-item" style="width: 609px;">
+                            <div class="item"><a
+                                    href="http://localhost/pi_maybay/tin-khuyen-mai/uu-dai-dac-biet-hanh-trinh-noi-dia-viet-nam-1.html">
+                                <img class="img-thumb"
+                                     src="theme/images/thumb-khuyen-mai.jpg"
+                                     alt="Ưu đãi đặc biệt hành trình nội địa Việt Nam"
+                                     title="Ưu đãi đặc biệt hành trình nội địa Việt Nam"></a>
+                                <div class="inner-post"><h3 style=" overflow: hidden;
+white-space: nowrap;
+text-overflow: ellipsis;">Ưu đãi đặc biệt hành trình nội địa Việt Nam</h3>
+                                    <p>Ưu đãi đặc biệt cho một số hành trình nội địa Việt Nam: chỉ từ 555.000VND/chiều.
+                                        Mua ngay để cùng tận hưởng chương trình này.</p><a
+                                            href="http://localhost/pi_maybay/tin-khuyen-mai/uu-dai-dac-biet-hanh-trinh-noi-dia-viet-nam-1.html">Xem
+                                        chi tiết</a>
+                                    <div class="clearfix"></div>
+                                </div>
+                                <div class="clearfix"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="owl-controls clickable">
+                    <div></div>
+                    <div class="owl-buttons">
+                        <div></div>
+                        <div class="owl-prev disabled">prev</div>
+                        <div class="owl-next">next</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="thanh-toan box"><h2 class="title">Các hình thức thanh toán</h2>
+        <ul class="list-thanh-toan">
+            <li class="item"><img src="theme/images/icon-thanhtoan1.png"
+                                  alt="Thanh toán bằng tiền mặt tại văn phòng Tourcoach"
+                                  title="Thanh toán bằng tiền mặt tại văn phòng Tourcoach">
+                <div class="inner"><h3>Thanh toán bằng tiền mặt tại văn phòng Tourcoach</h3>
+                    <p>Sau khi đăng ký thành công, quý khách vui lòng qua văn phòng công ty để thanh toán và nhận
+                        vé.</p></div>
+                <div class="clearfix"></div>
+            </li>
+            <li class="item"><img src="theme/images/icon-thanhtoan2.png"
+                                  alt="Thanh toán qua các cổng thanh toán trực tuyến"
+                                  title="Thanh toán qua các cổng thanh toán trực tuyến">
+                <div class="inner"><h3>Thanh toán qua các cổng thanh toán trực tuyến</h3>
+                    <p>Quý khách có thể thanh toán ngay (trực tiếp) thông qua cổng OnePay, Bảo Kim, Ngân Lượng</p></div>
+                <div class="clearfix"></div>
+            </li>
+            <li class="item"><img src="theme/images/icon-thanhtoan3.png"
+                                  alt="Thanh toán tại nhà" title="Thanh toán tại nhà">
+                <div class="inner"><h3>Thanh toán tại nhà</h3>
+                    <p>Nhân viên của TOURCOACH sẽ giao vé &amp; thu tiền tại nhà theo địa chỉ quý khách cung cấp</p>
+                </div>
+                <div class="clearfix"></div>
+            </li>
+            <li class="item"><img src="theme/images/icon-thanhtoan4.png"
+                                  alt="Thanh toán qua chuyển khoản" title="Thanh toán qua chuyển khoản">
+                <div class="inner"><h3>Thanh toán qua chuyển khoản</h3>
+                    <p>Quý khách có thể thanh toán cho chúng tôi bằng cách chuyển khoản tại ngân hàng, chuyển qua thẻ
+                        ATM, hoặc qua internet banking</p></div>
+                <div class="clearfix"></div>
+            </li>
+        </ul>
+    </div>
+    <div class="doi-tac box col-md-12 col-sm-12 col-xs-12"><h2 class="title">Đối tác hàng không</h2>
+        <div class="owl-carousel owl-theme doi-tac-slider" id="doi-tac-slider" style="display: block; opacity: 1;">
+            <div class="owl-wrapper-outer">
+                <div class="owl-wrapper"
+                     style="display: block; width: 5800px; left: 0px; transition: all 0ms ease; transform: translate3d(0px, 0px, 0px);">
+                    <div class="owl-item" style="width: 145px;">
+                        <div class="item"><a href=""><img
+                                src="theme/images/dt-vietjet.jpg"
+                                alt="Vietjet Air" title="Vietjet Air"></a></div>
+                    </div>
+                    <div class="owl-item" style="width: 145px;">
+                        <div class="item"><a href=""><img
+                                src="theme/images/dt-tigerair.jpg"
+                                alt="Tiger Air" title="Tiger Air"></a></div>
+                    </div>
+                    <div class="owl-item" style="width: 145px;">
+                        <div class="item"><a href=""><img
+                                src="theme/images/dt-thai.jpg"
+                                alt="Thái Lan" title="Thái Lan"></a></div>
+                    </div>
+                    <div class="owl-item" style="width: 145px;">
+                        <div class="item"><a href=""><img
+                                src="theme/images/dt-vietnamairline.jpg"
+                                alt="Vietnam Airlines" title="Vietnam Airlines"></a></div>
+                    </div>
+                    <div class="owl-item" style="width: 145px;">
+                        <div class="item"><a href=""><img
+                                src="theme/images/dt-vietjet.jpg"
+                                alt="Vietjet Air" title="Vietjet Air"></a></div>
+                    </div>
+                    <div class="owl-item" style="width: 145px;">
+                        <div class="item"><a href=""><img
+                                src="theme/images/dt-tigerair.jpg"
+                                alt="Tiger Air" title="Tiger Air"></a></div>
+                    </div>
+                    <div class="owl-item" style="width: 145px;">
+                        <div class="item"><a href=""><img
+                                src="theme/images/dt-thai.jpg"
+                                alt="Thái Lan" title="Thái Lan"></a></div>
+                    </div>
+                    <div class="owl-item" style="width: 145px;">
+                        <div class="item"><a href=""><img
+                                src="theme/images/dt-vietnamairline.jpg"
+                                alt="Vietnam Airlines" title="Vietnam Airlines"></a></div>
+                    </div>
+                    <div class="owl-item" style="width: 145px;">
+                        <div class="item"><a href=""><img
+                                src="theme/images/dt-vietjet.jpg"
+                                alt="Vietjet Air" title="Vietjet Air"></a></div>
+                    </div>
+                    <div class="owl-item" style="width: 145px;">
+                        <div class="item"><a href=""><img
+                                src="theme/images/dt-tigerair.jpg"
+                                alt="Tiger Air" title="Tiger Air"></a></div>
+                    </div>
+                    <div class="owl-item" style="width: 145px;">
+                        <div class="item"><a href=""><img
+                                src="theme/images/dt-thai.jpg"
+                                alt="Thái Lan" title="Thái Lan"></a></div>
+                    </div>
+                    <div class="owl-item" style="width: 145px;">
+                        <div class="item"><a href=""><img
+                                src="theme/images/dt-vietnamairline.jpg"
+                                alt="Vietnam Airlines" title="Vietnam Airlines"></a></div>
+                    </div>
+                    <div class="owl-item" style="width: 145px;">
+                        <div class="item"><a href=""><img
+                                src="theme/images/dt-vietjet.jpg"
+                                alt="Vietjet Air" title="Vietjet Air"></a></div>
+                    </div>
+                    <div class="owl-item" style="width: 145px;">
+                        <div class="item"><a href=""><img
+                                src="theme/images/dt-tigerair.jpg"
+                                alt="Tiger Air" title="Tiger Air"></a></div>
+                    </div>
+                    <div class="owl-item" style="width: 145px;">
+                        <div class="item"><a href=""><img
+                                src="theme/images/dt-thai.jpg"
+                                alt="Thái Lan" title="Thái Lan"></a></div>
+                    </div>
+                    <div class="owl-item" style="width: 145px;">
+                        <div class="item"><a href=""><img
+                                src="theme/images/dt-vietnamairline.jpg"
+                                alt="Vietnam Airlines" title="Vietnam Airlines"></a></div>
+                    </div>
+                    <div class="owl-item" style="width: 145px;">
+                        <div class="item"><a href=""><img
+                                src="theme/images/dt-vietjet.jpg"
+                                alt="Vietjet Air" title="Vietjet Air"></a></div>
+                    </div>
+                    <div class="owl-item" style="width: 145px;">
+                        <div class="item"><a href=""><img
+                                src="theme/images/dt-tigerair.jpg"
+                                alt="Tiger Air" title="Tiger Air"></a></div>
+                    </div>
+                    <div class="owl-item" style="width: 145px;">
+                        <div class="item"><a href=""><img
+                                src="theme/images/dt-thai.jpg"
+                                alt="Thái Lan" title="Thái Lan"></a></div>
+                    </div>
+                    <div class="owl-item" style="width: 145px;">
+                        <div class="item"><a href=""><img
+                                src="theme/images/dt-vietnamairline.jpg"
+                                alt="Vietnam Airlines" title="Vietnam Airlines"></a></div>
+                    </div>
+                </div>
+            </div>
+            <div class="owl-controls clickable">
+                <div></div>
+                <div class="owl-buttons">
+                    <div></div>
+                    <div class="owl-prev disabled">prev</div>
+                    <div class="owl-next">next</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<footer>
+    <div class="footer-bottom">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3 col-sm-6 col-xs-12"><h2 class="title">Về chúng tôi</h2>
+                    <div class="ft-content"><a class="footer-logo" href="http://localhost/pi_maybay"><img
+                            src="theme/images/footer-logo.jpg"
+                            alt="CÔNG TY TNHH DỊCH VỤ - VẬN TẢI VÀ LỮ HÀNH QUỐC TẾ COACH"
+                            title="CÔNG TY TNHH DỊCH VỤ - VẬN TẢI VÀ LỮ HÀNH QUỐC TẾ COACH"></a>
+                        <p class="line">Địa chỉ: <span>B44, phố Nguyễn Thị Định, Trung Hòa - Nhân Chính, Hà Nội</span>
+                        </p>
+                        <p class="line">Hotline: <span>094.998.0762</span></p>
+                        <p class="line">Email: <a href="mailto:tourcoach2013@gmail.com">tourcoach2013@gmail.com</a></p>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6 col-xs-12"><h2 class="title">Thông tin</h2>
+                    <div class="ft-content ft-menu">
+                        <ul>
+                            <li><a href="http://localhost/pi_maybay/gioi-thieu.html">Về chúng tôi</a></li>
+                            <li><a href="http://localhost/pi_maybay/dich-vu/">Dịch vụ</a></li>
+                            <li><a href="http://localhost/pi_maybay/dieu-khoan-dieu-kien.html">Điều khoản &amp; điều
+                                kiện</a></li>
+                            <li><a href="http://localhost/pi_maybay/chinh-sach-rieng-tu.html">Chính sách riêng tư</a>
+                            </li>
+                            <li><a href="http://localhost/pi_maybay/huong-dan-thanh-toan.html">Hướng dẫn thanh toán</a>
+                            </li>
+                            <li><a href="http://localhost/pi_maybay/thong-tin-chuyen-khoan.html">Thông tin chuyển
+                                khoản</a></li>
+                            <li><a href="http://localhost/pi_maybay/hoi-dap.html">Câu hỏi thường gặp</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6 col-xs-12"><h2 class="title">Vé nội địa</h2>
+                    <div class="ft-content ft-menu">
+                        <ul>
+                            <li><a href="http://localhost/pi_maybay/ve-noi-dia/ve-may-bay-di-hue-39.html">Vé máy bay đi
+                                Huế</a></li>
+                            <li><a href="http://localhost/pi_maybay/ve-noi-dia/ve-may-bay-di-vinh-38.html">Vé máy bay đi
+                                Vinh</a></li>
+                            <li><a href="http://localhost/pi_maybay/ve-noi-dia/ve-may-bay-di-phu-quoc-5.html">Vé máy bay
+                                đi Phú Quốc</a></li>
+                            <li><a href="http://localhost/pi_maybay/ve-noi-dia/ve-may-bay-di-can-tho-4.html">Vé máy bay
+                                đi Cần Thơ</a></li>
+                            <li><a href="http://localhost/pi_maybay/ve-noi-dia/ve-may-bay-di-da-lat-3.html">Vé máy bay
+                                đi Đà Lạt</a></li>
+                            <li><a href="http://localhost/pi_maybay/ve-noi-dia/ve-may-bay-di-da-nang-2.html">Vé máy bay
+                                đi Đà Nẵng</a></li>
+                            <li><a href="http://localhost/pi_maybay/ve-noi-dia/ve-may-bay-di-nha-trang-1.html">Vé máy
+                                bay đi Nha Trang</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6 col-xs-12"><h2 class="title">Đăng ký nhận bản tin</h2>
+                    <div class="ft-content"><p>Hãy đăng ký email của bạn để nhận được các tin khuyến mãi mới nhất từ
+                        TOURCOACH</p>
+                        <div class="mail-register">
+                            <form action="" method="post"><input class="enter-mail" type="email" name="Email_dk"
+                                                                 value="" placeholder="Email"><input
+                                    class="bnt-register" type="submit" value="Đăng ký" name="dangkyemail">
+                                <div class="clearfix"></div>
+                            </form>
+                        </div>
+                        <div class="sub-list social-list"><h3>KẾT NỐI VỚI TOURCOACH</h3>
+                            <ul>
+                                <li><a href="http://www.facebook.com/vifonic?fref=ts" "=""><i
+                                        class="fa fa-facebook"></i></a></li>
+                                <li><a href="http://www.twitter.com/vifonic" "=""><i class="fa fa-twitter"></i></a></li>
+                                <li><a href="https://www.youtube.com/vifonic"><i class="fa fa-youtube"></i></a></li>
+                                <li><a href="https://plus.google.com/vifonic"><i class="fa fa-google-plus"></i></a></li>
+                                <li><a href="http://feeds.feedburner.com/vifonic"><i class="fa fa-pinterest"></i></a>
+                                </li>
+                                <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+                            </ul>
+                            <div class="clearfix"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="site-info">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 col-sm-6 col-xs-12">
+                    <div class="fb-page" data-href="https://www.facebook.com/facebook" data-small-header="false"
+                         data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"
+                         data-show-posts="false">
+                        <div class="fb-xfbml-parse-ignore">
+                            <blockquote cite="https://www.facebook.com/facebook"><a
+                                    href="https://www.facebook.com/facebook">Facebook</a></blockquote>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6 col-xs-12"><h2>CÔNG TY TNHH DỊCH VỤ - VẬN TẢI VÀ LỮ HÀNH QUỐC TẾ
+                    COACH</h2>
+                    <p>Bản quyền 2015 Tourcoach.net - Là thành viên của Tourcoach Travel</p>
+                    <p>Giấy chứng nhận Đăng ký kinh doanh số 12345678</p>
+                    <p>Do Sở kế hoạch và Đầu tư Thành phố Hà Nội cấp ngày 10/03/2014</p></div>
+                <div class="col-md-4 col-sm-6 col-xs-12">
+                    <div class="sub-list thanh-toan-list"><h3>Thanh toán an toàn tại TOURCOACH</h3>
+                        <ul class="row">
+                            <li class="col-md-3 col-sm-3 col-xs-3"><a href=""><img
+                                    src="theme/images/tt-american.jpg"
+                                    title="" alt=""></a></li>
+                            <li class="col-md-3 col-sm-3 col-xs-3"><a href=""><img
+                                    src="theme/images/tt-discover.jpg"
+                                    title="" alt=""></a></li>
+                            <li class="col-md-3 col-sm-3 col-xs-3"><a href=""><img
+                                    src="theme/images/tt-jcb.jpg"
+                                    title="" alt=""></a></li>
+                            <li class="col-md-3 col-sm-3 col-xs-3"><a href=""><img
+                                    src="theme/images/tt-mastercard.jpg"
+                                    title="" alt=""></a></li>
+                            <li class="col-md-3 col-sm-3 col-xs-3"><a href=""><img
+                                    src="theme/images/tt-paypal.jpg"
+                                    title="" alt=""></a></li>
+                            <li class="col-md-3 col-sm-3 col-xs-3"><a href=""><img
+                                    src="theme/images/tt-uniconpay.jpg"
+                                    title="" alt=""></a></li>
+                            <li class="col-md-3 col-sm-3 col-xs-3"><a href=""><img
+                                    src="theme/images/tt-onepay.jpg"
+                                    title="Onpay" alt="Onpay"></a></li>
+                            <li class="col-md-3 col-sm-3 col-xs-3"><a href=""><img
+                                    src="theme/images/tt-visa.jpg"
+                                    title="Visa" alt="Visa"></a></li>
+                        </ul>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer-menu">
+        <div class="container">
+            <ul>
+                <li class="active"><a href="http://localhost/pi_maybay">Trang chủ</a></li>
+                <li class=""><a href="http://localhost/pi_maybay/gioi-thieu.html">Giới thiệu</a></li>
+                <li class=""><a href="http://localhost/pi_maybay/ve-noi-dia/">Vé nội địa</a></li>
+                <li class=""><a href="http://localhost/pi_maybay/ve-quoc-te/">Vé quốc tế</a></li>
+                <li class=""><a href="http://localhost/pi_maybay/dich-vu/">Dịch vụ</a></li>
+                <li class=""><a href="http://localhost/pi_maybay/tin-khuyen-mai/">Tin khuyến mãi</a></li>
+                <li><a href="http://localhost/pi_maybay/lien-he.html"> Liên hệ</a></li>
+            </ul>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+</footer>
+<div class="dialog listCity ui-dialog-content ui-widget-content" id="list-chieu-di"
+     style="background: rgb(255, 255, 255); display: none;"><h3 class="select-title">Lựa chọn thành phố hoặc sân bay
+    xuất phát <a class="dialog-close" href="#">X</a></h3>
+    <div class="domestic-col">
+        <ul>
+            <li class="title">Miền Bắc</li>
+            <li><a class="HAN" href="#" airportcode="HAN">Hà Nội</a></li>
+            <li><a class="HPH" href="#" airportcode="HPH">Hải Phòng</a></li>
+            <li><a class="DIN" href="#" airportcode="DIN">Điện Biên</a></li>
+        </ul>
+        <ul>
+            <li class="title">Miền Trung</li>
+            <li><a class="THD" href="#" airportcode="THD">Thanh Hóa</a></li>
+            <li><a class="VII" href="#" airportcode="VII">Vinh</a></li>
+            <li><a class="HUI" href="#" airportcode="HUI">Huế</a></li>
+            <li><a class="VDH" href="#" airportcode="VDH">Đồng Hới</a></li>
+            <li><a class="DAD" href="#" airportcode="DAD">Đà Nẵng</a></li>
+            <li><a class="TMK" href="#" airportcode="TMK">Tam Kỳ</a></li>
+            <li><a class="PXU" href="#" airportcode="PXU">Pleiku</a></li>
+            <li><a class="TBB" href="#" airportcode="TBB">Tuy Hòa</a></li>
+        </ul>
+    </div>
+    <div class="domestic-col">
+        <ul>
+            <li class="title">Miền Nam</li>
+            <li><a class="SGN" href="#" airportcode="SGN">Hồ Chí Minh</a></li>
+            <li><a class="CXR" href="#" airportcode="CXR">Nha Trang</a></li>
+            <li><a class="DLI" href="#" airportcode="DLI">Đà Lạt</a></li>
+            <li><a class="PQC" href="#" airportcode="PQC">Phú Quốc</a></li>
+            <li><a class="UIH" href="#" airportcode="UIH">Qui Nhơn</a></li>
+            <li><a class="VCA" href="#" airportcode="VCA">Cần Thơ</a></li>
+            <li><a class="VCS" href="#" airportcode="VCS">Côn Đảo</a></li>
+            <li><a class="BMV" href="#" airportcode="BMV">Ban Mê Thuột</a></li>
+            <li><a class="VKG" href="#" airportcode="VKG">Rạch Giá</a></li>
+            <li><a class="CAH" href="#" airportcode="CAH">Cà Mau</a></li>
+        </ul>
+    </div>
+    <div class="internation-city"><h3 class="title">Đặt vé quốc tế</h3>
+        <p>Hãy nhập vào tên thành phố hoặc mã sân bay</p><input type="text" id="sanbay_di" name="sanbay_di"
+                                                                onkeyup="autocomplet_di()">
+        <ul class="hien_tinh_di"></ul>
+        <div><a href="#" class="submit" id="submit-departure">Chọn</a></div>
+    </div>
+    <div class="clearfix"></div>
+</div>
+<div class="dialog listCity ui-dialog-content ui-widget-content" id="list-chieu-ve"
+     style="background: rgb(255, 255, 255); display: none;"><h3 class="select-title">Lựa chọn thành phố hoặc sân bay đến<a
+        class="dialog-close" href="#">X</a></h3>
+    <div class="domestic-col">
+        <ul>
+            <li class="title">Miền Bắc</li>
+            <li><a class="HAN" href="#" airportcode="HAN">Hà Nội</a></li>
+            <li><a class="HPH" href="#" airportcode="HPH">Hải Phòng</a></li>
+            <li><a class="DIN" href="#" airportcode="DIN">Điện Biên</a></li>
+        </ul>
+        <ul>
+            <li class="title">Miền Trung</li>
+            <li><a class="THD" href="#" airportcode="THD">Thanh Hóa</a></li>
+            <li><a class="VII" href="#" airportcode="VII">Vinh</a></li>
+            <li><a class="HUI" href="#" airportcode="HUI">Huế</a></li>
+            <li><a class="VDH" href="#" airportcode="VDH">Đồng Hới</a></li>
+            <li><a class="DAD" href="#" airportcode="DAD">Đà Nẵng</a></li>
+            <li><a class="TMK" href="#" airportcode="TMK">Tam Kỳ</a></li>
+            <li><a class="PXU" href="#" airportcode="PXU">Pleiku</a></li>
+            <li><a class="TBB" href="#" airportcode="TBB">Tuy Hòa</a></li>
+        </ul>
+    </div>
+    <div class="domestic-col">
+        <ul>
+            <li class="title">Miền Nam</li>
+            <li><a class="SGN" href="#" airportcode="SGN">Hồ Chí Minh</a></li>
+            <li><a class="CXR" href="#" airportcode="CXR">Nha Trang</a></li>
+            <li><a class="DLI" href="#" airportcode="DLI">Đà Lạt</a></li>
+            <li><a class="PQC" href="#" airportcode="PQC">Phú Quốc</a></li>
+            <li><a class="UIH" href="#" airportcode="UIH">Qui Nhơn</a></li>
+            <li><a class="VCA" href="#" airportcode="VCA">Cần Thơ</a></li>
+            <li><a class="VCS" href="#" airportcode="VCS">Côn Đảo</a></li>
+            <li><a class="BMV" href="#" airportcode="BMV">Ban Mê Thuột</a></li>
+            <li><a class="VKG" href="#" airportcode="VKG">Rạch Giá</a></li>
+            <li><a class="CAH" href="#" airportcode="CAH">Cà Mau</a></li>
+        </ul>
+    </div>
+    <div class="internation-city"><h3 class="title">Đặt vé quốc tế</h3>
+        <p>Hãy nhập vào tên thành phố hoặc mã sân bay</p><input type="text" id="sanbay_ve" name="sanbay_ve"
+                                                                onkeyup="autocomplet_ve()">
+        <ul class="hien_tinh_ve"></ul>
+        <div><a href="#" class="submit" id="submit-landingture">Chọn</a></div>
+    </div>
+    <div class="clearfix"></div>
+</div>
+<div id="ui-datepicker-div" class="ui-datepicker ui-widget ui-widget-content ui-helper-clearfix ui-corner-all"></div>
+
+</body>
+</html>
