@@ -1,0 +1,802 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Azbooking</title>
+
+    <meta name="description" content="Azbooking"/>
+    <meta name="keywords" content="Azbooking"/>
+    <link rel="shortcut icon" href="" type="image/x-icon"/>
+    <link rel="stylesheet" href="theme/css/rs-wp-v1.2.css" type="text/css"/>
+    <link rel="stylesheet/less" href="theme/style.css" type="text/css"/>
+    <link rel="stylesheet/less" href="theme/style_tt.css" type="text/css"/>
+    <link rel="stylesheet/less" href="theme/style.less" type="text/css"/>
+    <link rel="stylesheet/less" href="theme/css/animate.css" type="text/css"/>
+    <link rel="stylesheet/less" href="theme/css/bootstrap/css/bootstrap.css" type="text/css"/>
+
+    <script type="text/javascript" src="theme/js/jquery-1.11.0.js"></script>
+    <script type="text/javascript" src="theme/js/custom-script.js"></script>
+    <script type="text/javascript" src="theme/js/bootstrap3-typeahead.min.js"></script>
+    <script type="text/javascript" src="theme/js/less.min.js"></script>
+    <script type="text/javascript" src="theme/js/core.0.5.0.min.js"></script>
+    <script type="text/javascript" src="theme/css/bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="theme/js/isotope.pkgd.min.js"></script>
+    <script type="text/javascript" src="theme/js/jquery.lightbox_me.js"></script>
+
+    <!-- Jquery UI -->
+    <script type="text/javascript" src="theme/js/jquery-ui.js"></script>
+
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="theme/js/font-awesome/css/font-awesome.min.css">
+
+
+    <!-- Owl Carousel Assets -->
+    <link href="theme/css/owl.carousel.css" rel="stylesheet">
+    <link href="theme/css/owl.theme.css" rel="stylesheet">
+    <script type="text/javascript" src="theme/js/owl.carousel.min.js"></script>
+    <link rel="stylesheet" href="theme/css/jquery-ui.css">
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $( "#ngay-di" ).datepicker();
+        })
+    </script>
+    <script type='text/javascript'>window._sbzq || function (e) {
+        e._sbzq = [];
+        var t = e._sbzq;
+        t.push(["_setAccount", 24208]);
+        var n = e.location.protocol == "https:" ? "https:" : "http:";
+        var r = document.createElement("script");
+        r.type = "text/javascript";
+        r.async = true;
+        r.src = n + "//static.subiz.com/public/js/loader.js";
+        var i = document.getElementsByTagName("script")[0];
+        i.parentNode.insertBefore(r, i)
+    }(window);</script>
+
+    <!-- Fancy Box -->
+    <script type="text/javascript" src="theme/js/fancybox/jquery.fancybox.js"></script>
+    <link href="theme/js/fancybox/jquery.fancybox.css" rel="stylesheet">
+</head>
+<body>
+<div id="fb-root"></div>
+<script>(function (d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s);
+    js.id = id;
+    js.src = "//connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v2.4&appId=306238306156204";
+    fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script><!-- Go to www.addthis.com/dashboard to customize your tools -->
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-525b53f205641cd4"
+        async="async"></script>
+<div id="sign_up"
+     style="background: url('theme/images/dangnhap.png'); background-size: 100%;display: none;height: 57%; margin-left: -223px; z-index: 1002; position: absolute; top: 355px; margin-top: 0px; ">
+    <p style="width: 70%; font-size: 12px; height: 35px">Đăng nhập để nhận được nhiều ưu đãi cùng các chương trình
+        khuyến mãi của TOURCOACH</p>
+    <div class="inputdn"><input type="email" id="email_dn" placeholder="Email" style="color: #555;padding: 0px 10px"
+                                name="">
+        <span class="add-on"><i class="fa fa-envelope"></i></span><input type="password" id="pass_dn" placeholder="Password" name="" style="color: #555;padding: 0px 10px"><span
+                class="add-on2"><i class="fa fa-lock"></i></span><span
+                style="width: 120px; float: left; font-size: 12px; margin-top: 10px; margin-right: 20px;">
+            <a href="://localhost/pi_maybay.dang-ky-thanh-vien.html" style="color: #70d572">Đăng ký</a> là thành viên của Mixtourist</span><input
+                style="width: 116px; margin-right: 0px;margin-top: 10px;margin-bottom: 10px" type="submit" class="register"
+                id="dangnha_aj" name="dangkytv" value="Đăng nhập">
+        <p style="text-align: center; padding-top: 20px; padding-bottom: 10px">Hoặc đăng nhập bằng tài khoản</p><a
+                style="margin-right: 16px" href="://localhost/pi_maybay/dang-nhap-facebook/"><img
+                src="theme/images/face.png" title="Facebook" alt="Facebook"></a><a
+                href=""><img src="theme/images/google.png" title="Google"
+                             alt="Google"></a></div>
+    <script>$(document).ready(function () {
+        $("#dangnha_aj").click(function () {
+        })
+        $("#pass_dn").keypress(function (event) {
+            var keycode = (event.keyCode ? event.keyCode : event.which);
+            if (keycode == "13") {
+                var email = $('#email_dn').val();
+                var pass = $('#pass_dn').val();
+                $.ajax(
+                    {
+                        type: "get",
+                        url: "http://localhost/pi_maybay/controller/default/dangnhap.php",
+                        data: "email=" + email + "&pass=" + pass,
+                        success: function (love) {
+                            $('.dangnhap_act').html(love)
+                        }
+                    }
+                )
+            }
+        });
+    });</script>
+    <div class="dangnhap_act"></div>
+</div>
+<header id="header">
+    <div class="top-nav">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 col-xs-12 col-lg-4 col-sm-12">
+                    <marquee behavior="scroll" direction="left"><h2>Vé máy bay, đặt mua vé máy bay tại đại lý vé máy bay
+                        Mixtourist cam kết giá rẻ nhất</h2></marquee>
+                </div>
+                <div class="col-md-8 col-xs-12 col-sm-12">
+                    <ul class="menu-right">
+                        <li><a href="://localhost/pi_maybay/gioi-thieu.html"><i class="fa fa-user"></i> Về chúng tôi</a>
+                        </li>
+                        <li><a href="://localhost/pi_maybay/lien-he.html"><i class="fa fa-envelope"></i> Liên hệ</a>
+                        </li>
+                        <li><a href="://localhost/pi_maybay/hoi-dap.html"><i class="fa fa-comment"></i> Hỏi đáp</a>
+                        </li>
+                        <li><a href="javascript:void()" id="try-1"><i class="fa fa-sign-in"></i> Đăng nhập</a></li>
+                        <li><a href="://localhost/pi_maybay/dang-ky.html"><i class="fa fa-pencil-square-o"></i> Đăng
+                            ký</a></li>
+                        <script type="text/javascript" charset="utf-8">$(function () {
+                            function launch() {
+                                $('#sign_up').lightbox_me({
+                                    centered: true, onLoad: function () {
+                                        $('#sign_up').find('input:first').focus()
+                                    }
+                                });
+                            }
+
+                            $('#try-1').click(function (e) {
+                                $("#sign_up").lightbox_me({
+                                    centered: true, preventScroll: true, onLoad: function () {
+                                        $("#sign_up").find("input:first").focus();
+                                    }
+                                });
+                                e.preventDefault();
+                            });
+                            $('table tr:nth-child(even)').addClass('stripe');
+                        });</script>
+                        <script>$(document).ready(function () {
+                            $("#vn").click(function () {
+                                var giatri = 1;
+                                $.ajax(
+                                    {
+                                        type: "get",
+                                        url: "http://localhost/pi_maybay/controller/default/ngonngu.php",
+                                        data: "giatri=" + giatri,
+                                        success: function (love) {
+                                            $('.hien').html(love)
+                                        }
+                                    }
+                                )
+                            })
+                        });
+                        $(document).ready(function () {
+                            $("#kr").click(function () {
+                                var giatri = 2;
+                                $.ajax(
+                                    {
+                                        type: "get",
+                                        url: "http://localhost/pi_maybay/controller/default/ngonngu.php",
+                                        data: "giatri=" + giatri,
+                                        success: function (love) {
+                                            $('.hien').html(love)
+                                        }
+                                    }
+                                )
+                            })
+                        });</script>
+
+                        <div class="hien"></div>
+                    </ul>
+                    <div class="top-search">
+                        <form action="http://localhost/pi_maybay/tim-kiem" method="post"><input type="text"
+                                                                                                class="text-search"
+                                                                                                name="giatri" value=""
+                                                                                                placeholder="Tìm kiếm..."><input
+                                type="button" class="bnt-search" value="Tìm kiếm"></form>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="top-header">
+        <div class="container">
+            <div class="toogle-menu">Menu<a href="#"><span></span><span></span><span></span></a></div>
+            <div class="logo"><a href="://localhost/pi_maybay"><img
+                    src="theme/images/logoazbooking.vn.png"
+                    alt="Chuyên tour du lịch,khách sạn, máy bay giá rẻ"
+                    title="Chuyên tour du lịch,khách sạn, máy bay giá rẻ"> </a></div>
+            <div class="hot-line"><p>HOTLINE ĐẶT VÉ 24/7<span>046-2814-341</span></p></div>
+            <div class="main-menu">
+                <ul>
+                    <li class="active"><a href="://localhost/pi_maybay">Trang chủ</a></li>
+                    <li class=""><a href="://localhost/pi_maybay/gioi-thieu.html">Giới thiệu</a></li>
+                    <li class=""><a href="://localhost/pi_maybay/ve-noi-dia/">Vé nội địa</a></li>
+                    <li class=""><a href="://localhost/pi_maybay/ve-quoc-te/">Vé quốc tế</a></li>
+                    <li class=""><a href="://localhost/pi_maybay/dich-vu/">Dịch vụ</a></li>
+                    <li class=""><a href="://localhost/pi_maybay/tin-khuyen-mai/">Tin khuyến mãi</a></li>
+                </ul>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+    <div class="top-page top-page-detail_tt"><div class="container"><div class=" col-md-12 col-sm-12 col-xs-12 duongdan_tt"><a href="http://localhost/pi_maybay"><i class="fa fa-home"></i> Trang chủ</a> <i class="fa fa-angle-right"></i> <span>Tìm kiếm</span></div><div class="book-ticket col-md-12 col-sm-12 col-xs-12"><form class="form" action="http://localhost/pi_maybay/tim-kiem-chuyen-bay/" method="post"><div class="fields"><input type="radio" name="RoundTrip" value="true" id="ve-khu-hoi" checked=""><label for="ve-khu-hoi"><span></span>Vé khứ hồi</label><input type="radio" name="RoundTrip" value="false" id="ve-mot-chieu"><label for="ve-mot-chieu"><span></span>Vé một chiều</label></div><div class="row row-padding-10"><div class="col-md-2 col-sm-12 chon-dia-diem"><p>Điểm đi</p><input type="text" class="chuyen-bay chieu-di" id="chieu-di" value="Hà Nội" name="TFromPlace"><input id="hide-chieu-di" type="hidden" name="FromPlace" value="HAN"></div><div class="col-md-2 col-sm-12"><p>Điểm đến</p><input type="text" class="chuyen-bay chieu-ve" id="chieu-ve" value="Hồ Chí Minh" name="TToPlace"><input id="hide-chieu-ve" type="hidden" name="ToPlace" value="SGN"></div><div class="col-md-2-2 col-sm-12 date ngay"><div class="row row-padding-10"><div class="col-md-6 col-sm-12"><p>Ngày đi</p><input type="text" class="chuyen-bay hasDatepicker" id="ngay-di" value="22/06/2017" name="DepartDate"></div><div class="col-md-6 col-sm-12"><p>Ngày về</p><input type="text" class="chuyen-bay hasDatepicker" id="ngay-ve" value="23/06/2017" name="ReturnDate"></div></div></div><div class="col-md-2-1 col-sm-12 "><p>người lớn</p><div><a class="sub" href="#">-</a><select class="nguoi-lon" id="nguoi-lon" name="adult"><option selected="" value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option><option value="8">8</option><option value="9">9</option><option value="10">10</option><option value="11">11</option><option value="12">12</option><option value="13">13</option><option value="14">14</option><option value="15">15</option></select><a class="sum" href="#">+</a><div class="clearfix"></div></div></div><div class="col-md-2-1 col-sm-12"><p>trẻ em</p><div><a class="sub" href="#">-</a><select class="tre-em" id="tre-em" value="0" name="child"><option selected="" value="0">0</option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option><option value="8">8</option><option value="9">9</option><option value="10">10</option><option value="11">11</option><option value="12">12</option><option value="13">13</option><option value="14">14</option><option value="15">15</option></select><a class="sum" href="#">+</a><div class="clearfix"></div></div></div><div class="col-md-2-1 col-sm-12"><p>sơ sinh</p><div><a class="sub" href="#">-</a><select class="so-sinh" id="so-sinh" value="0" name="infant"><option selected="" value="0">0</option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option><option value="8">8</option><option value="9">9</option><option value="10">10</option><option value="11">11</option><option value="12">12</option><option value="13">13</option><option value="14">14</option><option value="15">15</option></select><a class="sum" href="#">+</a><div class="clearfix"></div></div></div><div class="col-md-2 col-sm-12 tim-kiem_tt "><p><input type="submit" value="Tìm chuyến bay" name="bntTimKiem"></p><input id="hide-noi-dia" type="hidden" name="noi-dia" value="true"></div></div></form></div></div></div>
+</header>
+<script type="text/javascript">$(document).ready(function(e) {
+    $deferered = Array();
+    if(true == true) {
+        $deferered.push(search_noidia('http://localhost/pi_maybay/controller/default/timkiem_aj',{
+            "RoundTrip": true,
+            "FromPlace": "HAN",
+            "TFromPlace": "Hà Nội",
+            "ToPlace": "SGN",
+            "TToPlace": "Hồ Chí Minh",
+            "DepartDate": "2017-06-22T00:00:00",
+            "ReturnDate": "2017-06-23T00:00:00",
+            "CurrencyType": "VND",
+            "Adult": 1,
+            "Child": 0,
+            "Infant": 0,
+            "Sources": "Abacus"
+        },"VietJetAir,JetStar,VietnamAirlines","depart","Price","result_depart_html"));
+        $deferered.push(search_noidia('http://localhost/pi_maybay/controller/default/timkiem_aj',{
+            "RoundTrip": true,
+            "FromPlace": "HAN",
+            "TFromPlace": "Hà Nội",
+            "ToPlace": "SGN",
+            "TToPlace": "Hồ Chí Minh",
+            "DepartDate": "2017-06-22T00:00:00",
+            "ReturnDate": "2017-06-23T00:00:00",
+            "CurrencyType": "VND",
+            "Adult": 1,
+            "Child": 0,
+            "Infant": 0,
+            "Sources": "Abacus"
+        },"VietJetAir,JetStar,VietnamAirlines","landing","Price","result_landing_html"));
+    }
+    else
+    {
+        $deferered.push(search_noidia('http://localhost/pi_maybay/controller/default/timkiem_aj',{
+            "RoundTrip": true,
+            "FromPlace": "HAN",
+            "TFromPlace": "Hà Nội",
+            "ToPlace": "SGN",
+            "TToPlace": "Hồ Chí Minh",
+            "DepartDate": "2017-06-22T00:00:00",
+            "ReturnDate": "2017-06-23T00:00:00",
+            "CurrencyType": "VND",
+            "Adult": 1,
+            "Child": 0,
+            "Infant": 0,
+            "Sources": "Abacus"
+        },"VietJetAir,JetStar,VietnamAirlines","","Price","result_html"));
+    }
+    $start = Date.now();
+});</script>
+<section class="content-area container"><div style="padding-left: 0px; margin-top: 25px;" class="left_sidebar col-md-9-1 col-sm-9 col-xs-12"><div class="main-content"><form class="form-ve" action="http://localhost/pi_maybay/dat-ve/" method="post"><div class="row row-padding-10 list-khu-hoi"><div class="result col-md-12 col-xs-12 col-lg-12 col-sm-12"><div class="info-result"><div class="hanh-trinh-title"><span>Hành trình chuyến đi</span></div><div class="hanh-trinh-info"><div class="chieu-bay"><p class="chieu-di">Hà Nội</p><p class="chieu-ve">Hồ Chí Minh</p></div><p class="loai-ve">Loại vé: <span>Vé khứ hồi</span></p><p class="ngay-xuat-phat">Ngày xuất phát: <span>22/06/2017</span></p><p class="so-hanh-khach">Số hành khách: <span>1 người lớn, 0 trẻ em
+, 0 sơ sinh</span></p></div><div class="clearfix"></div></div><!-- <div class="date-change"><p>15/6/2015</p></div>--><div class="list-result result-depart"><table class="list-ve" width="100%" cellspacing="0" cellpadding="0"><thead><tr><th>Chuyến bay</th><th>Khởi hành</th><th></th><th>Đến</th><th>Giá vé</th><th></th><th>Chi tiết</th></tr></thead><tbody id="result_depart_html">Không có kết quả tìm kiếm</tbody></table><img class="ajax-loader" src="http://localhost/pi_maybay/view/default/theme/images/ajax-loader.gif" alt="" style="display: none;"></div></div><div class="result col-md-12 col-xs-12 col-lg-12 col-sm-12"><div class="info-result"><div class="hanh-trinh-title"><span>Hành trình chuyến về</span></div><div class="hanh-trinh-info"><div class="chieu-bay"><p class="chieu-di">Hồ Chí Minh</p><p class="chieu-ve">Hà Nội</p></div><p class="loai-ve">Loại vé: <span>Vé khứ hồi</span></p><p class="ngay-xuat-phat">Ngày về: <span>23/06/2017</span></p><p class="so-hanh-khach">Số hành khách: <span>1 người lớn, 0 trẻ em
+, 0 sơ sinh</span></p></div><div class="clearfix"></div></div><!--<div class="date-change"><p>15/6/2015</p></div>--><div class="list-result result-landing"><table class="list-ve" width="100%" cellspacing="0" cellpadding="0"><thead><tr><th>Chuyến bay</th><th>Khởi hành</th><th></th><th>Đến</th><th>Giá vé</th><th></th><th>Chi tiết</th></tr></thead><tbody id="result_landing_html">Không có kết quả tìm kiếm</tbody></table><img class="ajax-loader" src="http://localhost/pi_maybay/view/default/theme/images/ajax-loader.gif" alt="" style="display: none;"></div></div><div class="bottom-offset"></div></div><div class="bottom-fixed"><div class="container"><div class="row"><div class="col-md-9 col-sm-9 col-xs-12 send" style="display: block;"><label for="dat-ve"><input name="bntDatVe" id="dat-ve" type="submit" value="Đặt vé ngay" class="send-fixed"></label><div class="clearfix"></div></div></div></div></div></form></div></div><div style="padding-right: 0px" class="right_sidebar col-md-3-right col-sm-3 col-xs-12"><div class="chi-tiet-ben-phai"><div class="tieude_tt"><h3>LỌC TÌM KIẾM</h3></div><div class="sap_xep_tt noidung_tk_tt "><div class="ma-new-product-title"><h2>Sắp xếp</h2><script>$(document).ready(function () {
+    $("#price_sx").click(function () {
+        var Price = $('#price_sx').val();
+        $deferered = Array();
+        $deferered.push(search_noidia('http://localhost/pi_maybay/controller/default/timkiem_aj', {
+            "RoundTrip": true,
+            "FromPlace": "HAN",
+            "TFromPlace": "Hà Nội",
+            "ToPlace": "SGN",
+            "TToPlace": "Hồ Chí Minh",
+            "DepartDate": "2017-06-22T00:00:00",
+            "ReturnDate": "2017-06-23T00:00:00",
+            "CurrencyType": "VND",
+            "Adult": 1,
+            "Child": 0,
+            "Infant": 0,
+            "Sources": "Abacus"
+        }, "VietJetAir,JetStar,VietnamAirlines,Abacus", "depart", Price, "result_depart_html"));
+        $deferered.push(search_noidia('http://localhost/pi_maybay/controller/default/timkiem_aj', {
+            "RoundTrip": true,
+            "FromPlace": "HAN",
+            "TFromPlace": "Hà Nội",
+            "ToPlace": "SGN",
+            "TToPlace": "Hồ Chí Minh",
+            "DepartDate": "2017-06-22T00:00:00",
+            "ReturnDate": "2017-06-23T00:00:00",
+            "CurrencyType": "VND",
+            "Adult": 1,
+            "Child": 0,
+            "Infant": 0,
+            "Sources": "Abacus"
+        }, "VietJetAir,JetStar,VietnamAirlines,Abacus", "landing", Price, "result_landing_html"));
+    })
+    $("#thoigian_sx").click(function () {
+        var DepartTime = $('#thoigian_sx').val();
+        $deferered = Array();
+        $deferered.push(search_noidia('http://localhost/pi_maybay/controller/default/timkiem_aj', {
+            "RoundTrip": true,
+            "FromPlace": "HAN",
+            "TFromPlace": "Hà Nội",
+            "ToPlace": "SGN",
+            "TToPlace": "Hồ Chí Minh",
+            "DepartDate": "2017-06-22T00:00:00",
+            "ReturnDate": "2017-06-23T00:00:00",
+            "CurrencyType": "VND",
+            "Adult": 1,
+            "Child": 0,
+            "Infant": 0,
+            "Sources": "Abacus"
+        }, "VietJetAir,JetStar,VietnamAirlines,Abacus", "depart", DepartTime, "result_depart_html"));
+        $deferered.push(search_noidia('http://localhost/pi_maybay/controller/default/timkiem_aj', {
+            "RoundTrip": true,
+            "FromPlace": "HAN",
+            "TFromPlace": "Hà Nội",
+            "ToPlace": "SGN",
+            "TToPlace": "Hồ Chí Minh",
+            "DepartDate": "2017-06-22T00:00:00",
+            "ReturnDate": "2017-06-23T00:00:00",
+            "CurrencyType": "VND",
+            "Adult": 1,
+            "Child": 0,
+            "Infant": 0,
+            "Sources": "Abacus"
+        }, "VietJetAir,JetStar,VietnamAirlines,Abacus", "landing", DepartTime, "result_landing_html"));
+    })
+    $("#hang_sx").click(function () {
+        var Hang = "1";
+        $deferered = Array();
+        $deferered.push(search_noidia('http://localhost/pi_maybay/controller/default/timkiem_aj', {
+            "RoundTrip": true,
+            "FromPlace": "HAN",
+            "TFromPlace": "Hà Nội",
+            "ToPlace": "SGN",
+            "TToPlace": "Hồ Chí Minh",
+            "DepartDate": "2017-06-22T00:00:00",
+            "ReturnDate": "2017-06-23T00:00:00",
+            "CurrencyType": "VND",
+            "Adult": 1,
+            "Child": 0,
+            "Infant": 0,
+            "Sources": "Abacus"
+        }, "VietJetAir,JetStar,VietnamAirlines,Abacus", "depart", Hang, "result_depart_html"));
+        $deferered.push(search_noidia('http://localhost/pi_maybay/controller/default/timkiem_aj', {
+            "RoundTrip": true,
+            "FromPlace": "HAN",
+            "TFromPlace": "Hà Nội",
+            "ToPlace": "SGN",
+            "TToPlace": "Hồ Chí Minh",
+            "DepartDate": "2017-06-22T00:00:00",
+            "ReturnDate": "2017-06-23T00:00:00",
+            "CurrencyType": "VND",
+            "Adult": 1,
+            "Child": 0,
+            "Infant": 0,
+            "Sources": "Abacus"
+        }, "VietJetAir,JetStar,VietnamAirlines,Abacus", "landing", Hang, "result_landing_html"));
+    })
+    $("#vn_sx").click(function () {
+        var giatri_vn = $('#vn_sx').val();
+        $deferered = Array();
+        $deferered.push(search_noidia('http://localhost/pi_maybay/controller/default/timkiem_aj', {
+            "RoundTrip": true,
+            "FromPlace": "HAN",
+            "TFromPlace": "Hà Nội",
+            "ToPlace": "SGN",
+            "TToPlace": "Hồ Chí Minh",
+            "DepartDate": "2017-06-22T00:00:00",
+            "ReturnDate": "2017-06-23T00:00:00",
+            "CurrencyType": "VND",
+            "Adult": 1,
+            "Child": 0,
+            "Infant": 0,
+            "Sources": "Abacus"
+        }, giatri_vn, "depart", "VN", "result_depart_html"));
+        $deferered.push(search_noidia('http://localhost/pi_maybay/controller/default/timkiem_aj', {
+            "RoundTrip": true,
+            "FromPlace": "HAN",
+            "TFromPlace": "Hà Nội",
+            "ToPlace": "SGN",
+            "TToPlace": "Hồ Chí Minh",
+            "DepartDate": "2017-06-22T00:00:00",
+            "ReturnDate": "2017-06-23T00:00:00",
+            "CurrencyType": "VND",
+            "Adult": 1,
+            "Child": 0,
+            "Infant": 0,
+            "Sources": "Abacus"
+        }, giatri_vn, "landing", "VN", "result_landing_html"));
+    })
+    $("#tatca_sx").click(function () {
+        $deferered = Array();
+        $deferered.push(search_noidia('http://localhost/pi_maybay/controller/default/timkiem_aj', {
+            "RoundTrip": true,
+            "FromPlace": "HAN",
+            "TFromPlace": "Hà Nội",
+            "ToPlace": "SGN",
+            "TToPlace": "Hồ Chí Minh",
+            "DepartDate": "2017-06-22T00:00:00",
+            "ReturnDate": "2017-06-23T00:00:00",
+            "CurrencyType": "VND",
+            "Adult": 1,
+            "Child": 0,
+            "Infant": 0,
+            "Sources": "Abacus"
+        }, "VietJetAir,JetStar,VietnamAirlines,Abacus", "depart", "Price", "result_depart_html"));
+        $deferered.push(search_noidia('http://localhost/pi_maybay/controller/default/timkiem_aj', {
+            "RoundTrip": true,
+            "FromPlace": "HAN",
+            "TFromPlace": "Hà Nội",
+            "ToPlace": "SGN",
+            "TToPlace": "Hồ Chí Minh",
+            "DepartDate": "2017-06-22T00:00:00",
+            "ReturnDate": "2017-06-23T00:00:00",
+            "CurrencyType": "VND",
+            "Adult": 1,
+            "Child": 0,
+            "Infant": 0,
+            "Sources": "Abacus"
+        }, "VietJetAir,JetStar,VietnamAirlines,Abacus", "landing", "Price", "result_landing_html"));
+    })
+    $("#vietjet_sx").click(function () {
+        var giatri_vn = $('#vietjet_sx').val();
+        $deferered = Array();
+        $deferered.push(search_noidia('http://localhost/pi_maybay/controller/default/timkiem_aj', {
+            "RoundTrip": true,
+            "FromPlace": "HAN",
+            "TFromPlace": "Hà Nội",
+            "ToPlace": "SGN",
+            "TToPlace": "Hồ Chí Minh",
+            "DepartDate": "2017-06-22T00:00:00",
+            "ReturnDate": "2017-06-23T00:00:00",
+            "CurrencyType": "VND",
+            "Adult": 1,
+            "Child": 0,
+            "Infant": 0,
+            "Sources": "Abacus"
+        }, giatri_vn, "depart", "VN", "result_depart_html"));
+        $deferered.push(search_noidia('http://localhost/pi_maybay/controller/default/timkiem_aj', {
+            "RoundTrip": true,
+            "FromPlace": "HAN",
+            "TFromPlace": "Hà Nội",
+            "ToPlace": "SGN",
+            "TToPlace": "Hồ Chí Minh",
+            "DepartDate": "2017-06-22T00:00:00",
+            "ReturnDate": "2017-06-23T00:00:00",
+            "CurrencyType": "VND",
+            "Adult": 1,
+            "Child": 0,
+            "Infant": 0,
+            "Sources": "Abacus"
+        }, giatri_vn, "landing", "VN", "result_landing_html"));
+    })
+    $("#jet_sx").click(function () {
+        var giatri_vn = $('#jet_sx').val();
+        $deferered = Array();
+        $deferered.push(search_noidia('http://localhost/pi_maybay/controller/default/timkiem_aj', {
+            "RoundTrip": true,
+            "FromPlace": "HAN",
+            "TFromPlace": "Hà Nội",
+            "ToPlace": "SGN",
+            "TToPlace": "Hồ Chí Minh",
+            "DepartDate": "2017-06-22T00:00:00",
+            "ReturnDate": "2017-06-23T00:00:00",
+            "CurrencyType": "VND",
+            "Adult": 1,
+            "Child": 0,
+            "Infant": 0,
+            "Sources": "Abacus"
+        }, giatri_vn, "depart", "VN", "result_depart_html"));
+        $deferered.push(search_noidia('http://localhost/pi_maybay/controller/default/timkiem_aj', {
+            "RoundTrip": true,
+            "FromPlace": "HAN",
+            "TFromPlace": "Hà Nội",
+            "ToPlace": "SGN",
+            "TToPlace": "Hồ Chí Minh",
+            "DepartDate": "2017-06-22T00:00:00",
+            "ReturnDate": "2017-06-23T00:00:00",
+            "CurrencyType": "VND",
+            "Adult": 1,
+            "Child": 0,
+            "Infant": 0,
+            "Sources": "Abacus"
+        }, giatri_vn, "landing", "VN", "result_landing_html"));
+    })
+});</script></div><p><input type="radio" checked="" value="Price" name="sapxep" id="price_sx"> Giá (thấp tới cao)</p><p><input type="radio" value="DepartTime" name="sapxep" id="thoigian_sx"> Thời gian khởi hành</p><p><input type="radio" value="" name="sapxep" id="hang_sx"> Hãng hàng không</p><div class="ma-new-product-title"><h2>Hãng hàng không</h2></div><p><input type="radio" value="1" checked="" name="hang" id="tatca_sx"> Hiển thị tất cả</p><p><input type="radio" name="hang" value="VietnamAirlines" id="vn_sx"> Vietnam Airlines<img style="float: right" src="http://localhost/pi_maybay/view/default/theme/images/VietnamAirlines.png"></p><p><input type="radio" name="hang" value="VietJetAir" id="vietjet_sx"> VietJet Airlines<img style="float: right" src="http://localhost/pi_maybay/view/default/theme/images/VietJetAir.png"></p><p><input type="radio" name="hang" value="JetStar" id="jet_sx"> JetStar Airlines<img style="float: right" src="http://localhost/pi_maybay/view/default/theme/images/JetStar.png"></p><div class="ma-new-product-title"><h2>Thời gian khởi hành</h2></div><p><script>$(function () {
+    $("#slider-range").slider({
+        range: true,
+        min: 0,
+        max: 24,
+        values: [ 0, 24 ],
+        slide: function (event, ui) {
+            $("#amount").val("" + ui.values[ 0 ] + "-" + ui.values[ 1 ]);
+        }
+    });
+    $("#amount").val("" + $("#slider-range").slider("values", 0) +
+        "-" + $("#slider-range").slider("values", 1));
+    $("#slider-range").slider({
+        change: function (event, ui) {
+            var amu = $('#amount').val();
+            $deferered = Array();
+            $deferered.push(search_noidia('http://localhost/pi_maybay/controller/default/timkiem_aj2', {
+                "RoundTrip": true,
+                "FromPlace": "HAN",
+                "TFromPlace": "Hà Nội",
+                "ToPlace": "SGN",
+                "TToPlace": "Hồ Chí Minh",
+                "DepartDate": "2017-06-22T00:00:00",
+                "ReturnDate": "2017-06-23T00:00:00",
+                "CurrencyType": "VND",
+                "Adult": 1,
+                "Child": 0,
+                "Infant": 0,
+                "Sources": "Abacus"
+            }, "VietJetAir,JetStar,VietnamAirlines,Abacus", "depart", amu, "result_depart_html")); //time-0-17
+        }
+    });
+    $("#slider-range_ve").slider({
+        range: true,
+        min: 0,
+        max: 24,
+        values: [ 0, 24 ],
+        slide: function (event, ui) {
+            $("#amount_ve").val("" + ui.values[ 0 ] + "-" + ui.values[ 1 ]);
+        }
+    });
+    $("#amount_ve").val("" + $("#slider-range_ve").slider("values", 0) +
+        "-" + $("#slider-range_ve").slider("values", 1));
+    $("#slider-range_ve").slider({
+        change: function (event, ui) {
+            var amu = $('#amount_ve').val();
+            $deferered = Array();
+            $deferered.push(search_noidia('http://localhost/pi_maybay/controller/default/timkiem_aj2', {
+                "RoundTrip": true,
+                "FromPlace": "HAN",
+                "TFromPlace": "Hà Nội",
+                "ToPlace": "SGN",
+                "TToPlace": "Hồ Chí Minh",
+                "DepartDate": "2017-06-22T00:00:00",
+                "ReturnDate": "2017-06-23T00:00:00",
+                "CurrencyType": "VND",
+                "Adult": 1,
+                "Child": 0,
+                "Infant": 0,
+                "Sources": "Abacus"
+            }, "VietJetAir,JetStar,VietnamAirlines,Abacus", "landing", amu, "result_landing_html")); //time-0-17
+        }
+    });
+});</script></p><div class="price-box"><p>Chiều đi: <input type="text" id="amount" readonly="" style="border:0;">(h)</p><div id="slider-range" class="ui-slider ui-slider-horizontal ui-widget ui-widget-content ui-corner-all"><div class="ui-slider-range ui-widget-header ui-corner-all" style="left: 0%; width: 100%;"></div><span class="ui-slider-handle ui-state-default ui-corner-all" tabindex="0" style="left: 0%;"></span><span class="ui-slider-handle ui-state-default ui-corner-all" tabindex="0" style="left: 100%;"></span></div><p class="rule_tt"><span class="h-6">0h</span><span class="h-4">6h</span><span class="h-4">10h</span><span class="h-4">14h</span><span class="h-4">18h</span><span class="h-6 last">24h</span></p><p>Chiều về: <input type="text" id="amount_ve" readonly="" style="border:0;">(h)</p><div id="slider-range_ve" class="ui-slider ui-slider-horizontal ui-widget ui-widget-content ui-corner-all"><div class="ui-slider-range ui-widget-header ui-corner-all" style="left: 0%; width: 100%;"></div><span class="ui-slider-handle ui-state-default ui-corner-all" tabindex="0" style="left: 0%;"></span><span class="ui-slider-handle ui-state-default ui-corner-all" tabindex="0" style="left: 100%;"></span></div><p class="rule_tt"><span class="h-6">0h</span><span class="h-4">6h</span><span class="h-4">10h</span><span class="h-4">14h</span><span class="h-4">18h</span><span class="h-6 last">24h</span></p></div><p></p></div><div class="clearfix"></div></div><div class="fb-page" data-href="https://www.facebook.com/facebook" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true" data-show-posts="false"><div class="fb-xfbml-parse-ignore"><blockquote cite="https://www.facebook.com/facebook"><a href="https://www.facebook.com/facebook">Facebook</a></blockquote></div></div></div><div class="doi-tac box col-md-12 col-sm-12 col-xs-12"><h2 class="title">Đối tác hàng không</h2><div class="owl-carousel owl-theme doi-tac-slider" id="doi-tac-slider" style="display: block; opacity: 1;"><div class="owl-wrapper-outer"><div class="owl-wrapper" style="width: 5800px; left: 0px; display: block;"><div class="owl-item" style="width: 145px;"><div class="item"><a href=""><img src="/pi_maybay/view/admin/Themes/kcfinder/upload/images/doitac/dt-vietjet.jpg" alt="Vietjet Air" title="Vietjet Air"></a></div></div><div class="owl-item" style="width: 145px;"><div class="item"><a href=""><img src="/pi_maybay/view/admin/Themes/kcfinder/upload/images/doitac/dt-tigerair.jpg" alt="Tiger Air" title="Tiger Air"></a></div></div><div class="owl-item" style="width: 145px;"><div class="item"><a href=""><img src="/pi_maybay/view/admin/Themes/kcfinder/upload/images/doitac/dt-thai.jpg" alt="Thái Lan" title="Thái Lan"></a></div></div><div class="owl-item" style="width: 145px;"><div class="item"><a href=""><img src="/pi_maybay/view/admin/Themes/kcfinder/upload/images/doitac/dt-vietnamairline.jpg" alt="Vietnam Airlines" title="Vietnam Airlines"></a></div></div><div class="owl-item" style="width: 145px;"><div class="item"><a href=""><img src="/pi_maybay/view/admin/Themes/kcfinder/upload/images/doitac/dt-vietjet.jpg" alt="Vietjet Air" title="Vietjet Air"></a></div></div><div class="owl-item" style="width: 145px;"><div class="item"><a href=""><img src="/pi_maybay/view/admin/Themes/kcfinder/upload/images/doitac/dt-tigerair.jpg" alt="Tiger Air" title="Tiger Air"></a></div></div><div class="owl-item" style="width: 145px;"><div class="item"><a href=""><img src="/pi_maybay/view/admin/Themes/kcfinder/upload/images/doitac/dt-thai.jpg" alt="Thái Lan" title="Thái Lan"></a></div></div><div class="owl-item" style="width: 145px;"><div class="item"><a href=""><img src="/pi_maybay/view/admin/Themes/kcfinder/upload/images/doitac/dt-vietnamairline.jpg" alt="Vietnam Airlines" title="Vietnam Airlines"></a></div></div><div class="owl-item" style="width: 145px;"><div class="item"><a href=""><img src="/pi_maybay/view/admin/Themes/kcfinder/upload/images/doitac/dt-vietjet.jpg" alt="Vietjet Air" title="Vietjet Air"></a></div></div><div class="owl-item" style="width: 145px;"><div class="item"><a href=""><img src="/pi_maybay/view/admin/Themes/kcfinder/upload/images/doitac/dt-tigerair.jpg" alt="Tiger Air" title="Tiger Air"></a></div></div><div class="owl-item" style="width: 145px;"><div class="item"><a href=""><img src="/pi_maybay/view/admin/Themes/kcfinder/upload/images/doitac/dt-thai.jpg" alt="Thái Lan" title="Thái Lan"></a></div></div><div class="owl-item" style="width: 145px;"><div class="item"><a href=""><img src="/pi_maybay/view/admin/Themes/kcfinder/upload/images/doitac/dt-vietnamairline.jpg" alt="Vietnam Airlines" title="Vietnam Airlines"></a></div></div><div class="owl-item" style="width: 145px;"><div class="item"><a href=""><img src="/pi_maybay/view/admin/Themes/kcfinder/upload/images/doitac/dt-vietjet.jpg" alt="Vietjet Air" title="Vietjet Air"></a></div></div><div class="owl-item" style="width: 145px;"><div class="item"><a href=""><img src="/pi_maybay/view/admin/Themes/kcfinder/upload/images/doitac/dt-tigerair.jpg" alt="Tiger Air" title="Tiger Air"></a></div></div><div class="owl-item" style="width: 145px;"><div class="item"><a href=""><img src="/pi_maybay/view/admin/Themes/kcfinder/upload/images/doitac/dt-thai.jpg" alt="Thái Lan" title="Thái Lan"></a></div></div><div class="owl-item" style="width: 145px;"><div class="item"><a href=""><img src="/pi_maybay/view/admin/Themes/kcfinder/upload/images/doitac/dt-vietnamairline.jpg" alt="Vietnam Airlines" title="Vietnam Airlines"></a></div></div><div class="owl-item" style="width: 145px;"><div class="item"><a href=""><img src="/pi_maybay/view/admin/Themes/kcfinder/upload/images/doitac/dt-vietjet.jpg" alt="Vietjet Air" title="Vietjet Air"></a></div></div><div class="owl-item" style="width: 145px;"><div class="item"><a href=""><img src="/pi_maybay/view/admin/Themes/kcfinder/upload/images/doitac/dt-tigerair.jpg" alt="Tiger Air" title="Tiger Air"></a></div></div><div class="owl-item" style="width: 145px;"><div class="item"><a href=""><img src="/pi_maybay/view/admin/Themes/kcfinder/upload/images/doitac/dt-thai.jpg" alt="Thái Lan" title="Thái Lan"></a></div></div><div class="owl-item" style="width: 145px;"><div class="item"><a href=""><img src="/pi_maybay/view/admin/Themes/kcfinder/upload/images/doitac/dt-vietnamairline.jpg" alt="Vietnam Airlines" title="Vietnam Airlines"></a></div></div></div></div><div class="owl-controls clickable"><div></div><div class="owl-buttons"><div></div><div class="owl-prev disabled">prev</div><div class="owl-next">next</div></div></div></div></div></section>
+<footer>
+    <div class="footer-bottom">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3 col-sm-6 col-xs-12"><h2 class="title">Về chúng tôi</h2>
+                    <div class="ft-content"><a class="footer-logo" href="://localhost/pi_maybay"><img
+                            src="theme/images/logoazbooking.vn.png"
+                            alt="CÔNG TY TNHH DỊCH VỤ - VẬN TẢI VÀ LỮ HÀNH QUỐC TẾ COACH"
+                            title="CÔNG TY TNHH DỊCH VỤ - VẬN TẢI VÀ LỮ HÀNH QUỐC TẾ COACH"></a>
+                        <p class="line">Địa chỉ: <span>Phòng 2001, tầng 20, tòa nhà 137 Nguyễn Ngọc Vũ, Cầu Giấy, Hà Nội</span>
+                        </p>
+                        <p class="line">Hotline: <span>094.998.0762</span></p>
+                        <p class="line">Email: <a href="mailto:info@azbooking.vn">info@azbooking.vn</a></p>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6 col-xs-12"><h2 class="title">Thông tin</h2>
+                    <div class="ft-content ft-menu">
+                        <ul>
+                            <li><a href="://localhost/pi_maybay/gioi-thieu.html">Về chúng tôi</a></li>
+                            <li><a href="://localhost/pi_maybay/dich-vu/">Dịch vụ</a></li>
+                            <li><a href="://localhost/pi_maybay/dieu-khoan-dieu-kien.html">Điều khoản &amp; điều
+                                kiện</a></li>
+                            <li><a href="://localhost/pi_maybay/chinh-sach-rieng-tu.html">Chính sách riêng tư</a>
+                            </li>
+                            <li><a href="://localhost/pi_maybay/huong-dan-thanh-toan.html">Hướng dẫn thanh toán</a>
+                            </li>
+                            <li><a href="://localhost/pi_maybay/thong-tin-chuyen-khoan.html">Thông tin chuyển
+                                khoản</a></li>
+                            <li><a href="://localhost/pi_maybay/hoi-dap.html">Câu hỏi thường gặp</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6 col-xs-12"><h2 class="title">Vé nội địa</h2>
+                    <div class="ft-content ft-menu">
+                        <ul>
+                            <li><a href="://localhost/pi_maybay/ve-noi-dia/ve-may-bay-di-hue-39.html">Vé máy bay đi
+                                Huế</a></li>
+                            <li><a href="://localhost/pi_maybay/ve-noi-dia/ve-may-bay-di-vinh-38.html">Vé máy bay đi
+                                Vinh</a></li>
+                            <li><a href="://localhost/pi_maybay/ve-noi-dia/ve-may-bay-di-phu-quoc-5.html">Vé máy bay
+                                đi Phú Quốc</a></li>
+                            <li><a href="://localhost/pi_maybay/ve-noi-dia/ve-may-bay-di-can-tho-4.html">Vé máy bay
+                                đi Cần Thơ</a></li>
+                            <li><a href="://localhost/pi_maybay/ve-noi-dia/ve-may-bay-di-da-lat-3.html">Vé máy bay
+                                đi Đà Lạt</a></li>
+                            <li><a href="://localhost/pi_maybay/ve-noi-dia/ve-may-bay-di-da-nang-2.html">Vé máy bay
+                                đi Đà Nẵng</a></li>
+                            <li><a href="://localhost/pi_maybay/ve-noi-dia/ve-may-bay-di-nha-trang-1.html">Vé máy
+                                bay đi Nha Trang</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6 col-xs-12"><h2 class="title">Đăng ký nhận bản tin</h2>
+                    <div class="ft-content"><p>Hãy đăng ký email của bạn để nhận được các tin khuyến mãi mới nhất từ
+                        MIXTOURIST</p>
+                        <div class="mail-register">
+                            <form action="" method="post"><input class="enter-mail" type="email" name="Email_dk"
+                                                                 value="" placeholder="Email"><input
+                                    class="bnt-register" type="submit" value="Đăng ký" name="dangkyemail">
+                                <div class="clearfix"></div>
+                            </form>
+                        </div>
+                        <div class="sub-list social-list"><h3>KẾT NỐI VỚI MIXTOURIST</h3>
+                            <ul>
+                                <li><a href="" ><i
+                                        class="fa fa-facebook"></i></a></li>
+                                <li><a href="://www.twitter.com/vifonic"><i class="fa fa-twitter"></i></a></li>
+                                <li><a href="s://www.youtube.com/vifonic"><i class="fa fa-youtube"></i></a></li>
+                                <li><a href="s://plus.google.com/vifonic"><i class="fa fa-google-plus"></i></a></li>
+                                <li><a href="://feeds.feedburner.com/vifonic"><i class="fa fa-pinterest"></i></a>
+                                </li>
+                                <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+                            </ul>
+                            <div class="clearfix"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="site-info">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 col-sm-6 col-xs-12">
+                    <div class="fb-page" data-href="https://www.facebook.com/facebook" data-small-header="false"
+                         data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"
+                         data-show-posts="false">
+                        <div class="fb-xfbml-parse-ignore">
+                            <blockquote cite="https://www.facebook.com/facebook"><a
+                                    href="s://www.facebook.com/facebook">Facebook</a></blockquote>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6 col-xs-12"><h2>CÔNG TY DU LỊCH MIXTOURIST</h2>
+                    <p>Bản quyền 2015 Mixtour - Là thành viên của Mixtour Group</p>
+                    <p>Giấy chứng nhận Đăng ký kinh doanh số 12345678</p>
+                    <p>Do Sở kế hoạch và Đầu tư Thành phố Hà Nội cấp ngày 10/03/2014</p></div>
+                <div class="col-md-4 col-sm-6 col-xs-12">
+                    <div class="sub-list thanh-toan-list"><h3>Thanh toán an toàn tại MIXTOUR</h3>
+                        <ul class="row">
+                            <li class="col-md-3 col-sm-3 col-xs-3"><a href=""><img
+                                    src="theme/images/tt-american.jpg"
+                                    title="" alt=""></a></li>
+                            <li class="col-md-3 col-sm-3 col-xs-3"><a href=""><img
+                                    src="theme/images/tt-discover.jpg"
+                                    title="" alt=""></a></li>
+                            <li class="col-md-3 col-sm-3 col-xs-3"><a href=""><img
+                                    src="theme/images/tt-jcb.jpg"
+                                    title="" alt=""></a></li>
+                            <li class="col-md-3 col-sm-3 col-xs-3"><a href=""><img
+                                    src="theme/images/tt-mastercard.jpg"
+                                    title="" alt=""></a></li>
+                            <li class="col-md-3 col-sm-3 col-xs-3"><a href=""><img
+                                    src="theme/images/tt-paypal.jpg"
+                                    title="" alt=""></a></li>
+                            <li class="col-md-3 col-sm-3 col-xs-3"><a href=""><img
+                                    src="theme/images/tt-uniconpay.jpg"
+                                    title="" alt=""></a></li>
+                            <li class="col-md-3 col-sm-3 col-xs-3"><a href=""><img
+                                    src="theme/images/tt-onepay.jpg"
+                                    title="Onpay" alt="Onpay"></a></li>
+                            <li class="col-md-3 col-sm-3 col-xs-3"><a href=""><img
+                                    src="theme/images/tt-visa.jpg"
+                                    title="Visa" alt="Visa"></a></li>
+                        </ul>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer-menu">
+        <div class="container">
+            <ul>
+                <li class="active"><a href="://localhost/pi_maybay">Trang chủ</a></li>
+                <li class=""><a href="://localhost/pi_maybay/gioi-thieu.html">Giới thiệu</a></li>
+                <li class=""><a href="://localhost/pi_maybay/ve-noi-dia/">Vé nội địa</a></li>
+                <li class=""><a href="://localhost/pi_maybay/ve-quoc-te/">Vé quốc tế</a></li>
+                <li class=""><a href="://localhost/pi_maybay/dich-vu/">Dịch vụ</a></li>
+                <li class=""><a href="://localhost/pi_maybay/tin-khuyen-mai/">Tin khuyến mãi</a></li>
+                <li><a href="://localhost/pi_maybay/lien-he.html"> Liên hệ</a></li>
+            </ul>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+</footer>
+<div class="dialog listCity ui-dialog-content ui-widget-content" id="list-chieu-di"
+     style="background: rgb(255, 255, 255); display: none;"><h3 class="select-title">Lựa chọn thành phố hoặc sân bay
+    xuất phát <a class="dialog-close" href="#">X</a></h3>
+    <div class="domestic-col">
+        <ul>
+            <li class="title">Miền Bắc</li>
+            <li><a class="HAN" href="#" airportcode="HAN">Hà Nội</a></li>
+            <li><a class="HPH" href="#" airportcode="HPH">Hải Phòng</a></li>
+            <li><a class="DIN" href="#" airportcode="DIN">Điện Biên</a></li>
+        </ul>
+        <ul>
+            <li class="title">Miền Trung</li>
+            <li><a class="THD" href="#" airportcode="THD">Thanh Hóa</a></li>
+            <li><a class="VII" href="#" airportcode="VII">Vinh</a></li>
+            <li><a class="HUI" href="#" airportcode="HUI">Huế</a></li>
+            <li><a class="VDH" href="#" airportcode="VDH">Đồng Hới</a></li>
+            <li><a class="DAD" href="#" airportcode="DAD">Đà Nẵng</a></li>
+            <li><a class="TMK" href="#" airportcode="TMK">Tam Kỳ</a></li>
+            <li><a class="PXU" href="#" airportcode="PXU">Pleiku</a></li>
+            <li><a class="TBB" href="#" airportcode="TBB">Tuy Hòa</a></li>
+        </ul>
+    </div>
+    <div class="domestic-col">
+        <ul>
+            <li class="title">Miền Nam</li>
+            <li><a class="SGN" href="#" airportcode="SGN">Hồ Chí Minh</a></li>
+            <li><a class="CXR" href="#" airportcode="CXR">Nha Trang</a></li>
+            <li><a class="DLI" href="#" airportcode="DLI">Đà Lạt</a></li>
+            <li><a class="PQC" href="#" airportcode="PQC">Phú Quốc</a></li>
+            <li><a class="UIH" href="#" airportcode="UIH">Qui Nhơn</a></li>
+            <li><a class="VCA" href="#" airportcode="VCA">Cần Thơ</a></li>
+            <li><a class="VCS" href="#" airportcode="VCS">Côn Đảo</a></li>
+            <li><a class="BMV" href="#" airportcode="BMV">Ban Mê Thuột</a></li>
+            <li><a class="VKG" href="#" airportcode="VKG">Rạch Giá</a></li>
+            <li><a class="CAH" href="#" airportcode="CAH">Cà Mau</a></li>
+        </ul>
+    </div>
+    <div class="internation-city"><h3 class="title">Đặt vé quốc tế</h3>
+        <p>Hãy nhập vào tên thành phố hoặc mã sân bay</p><input type="text" id="sanbay_di" name="sanbay_di"
+                                                                onkeyup="autocomplet_di()">
+        <ul class="hien_tinh_di"></ul>
+        <div><a href="#" class="submit" id="submit-departure">Chọn</a></div>
+    </div>
+    <div class="clearfix"></div>
+</div>
+<div class="dialog listCity ui-dialog-content ui-widget-content" id="list-chieu-ve"
+     style="background: rgb(255, 255, 255); display: none;"><h3 class="select-title">Lựa chọn thành phố hoặc sân bay đến<a
+        class="dialog-close" href="#">X</a></h3>
+    <div class="domestic-col">
+        <ul>
+            <li class="title">Miền Bắc</li>
+            <li><a class="HAN" href="#" airportcode="HAN">Hà Nội</a></li>
+            <li><a class="HPH" href="#" airportcode="HPH">Hải Phòng</a></li>
+            <li><a class="DIN" href="#" airportcode="DIN">Điện Biên</a></li>
+        </ul>
+        <ul>
+            <li class="title">Miền Trung</li>
+            <li><a class="THD" href="#" airportcode="THD">Thanh Hóa</a></li>
+            <li><a class="VII" href="#" airportcode="VII">Vinh</a></li>
+            <li><a class="HUI" href="#" airportcode="HUI">Huế</a></li>
+            <li><a class="VDH" href="#" airportcode="VDH">Đồng Hới</a></li>
+            <li><a class="DAD" href="#" airportcode="DAD">Đà Nẵng</a></li>
+            <li><a class="TMK" href="#" airportcode="TMK">Tam Kỳ</a></li>
+            <li><a class="PXU" href="#" airportcode="PXU">Pleiku</a></li>
+            <li><a class="TBB" href="#" airportcode="TBB">Tuy Hòa</a></li>
+        </ul>
+    </div>
+    <div class="domestic-col">
+        <ul>
+            <li class="title">Miền Nam</li>
+            <li><a class="SGN" href="#" airportcode="SGN">Hồ Chí Minh</a></li>
+            <li><a class="CXR" href="#" airportcode="CXR">Nha Trang</a></li>
+            <li><a class="DLI" href="#" airportcode="DLI">Đà Lạt</a></li>
+            <li><a class="PQC" href="#" airportcode="PQC">Phú Quốc</a></li>
+            <li><a class="UIH" href="#" airportcode="UIH">Qui Nhơn</a></li>
+            <li><a class="VCA" href="#" airportcode="VCA">Cần Thơ</a></li>
+            <li><a class="VCS" href="#" airportcode="VCS">Côn Đảo</a></li>
+            <li><a class="BMV" href="#" airportcode="BMV">Ban Mê Thuột</a></li>
+            <li><a class="VKG" href="#" airportcode="VKG">Rạch Giá</a></li>
+            <li><a class="CAH" href="#" airportcode="CAH">Cà Mau</a></li>
+        </ul>
+    </div>
+    <div class="internation-city"><h3 class="title">Đặt vé quốc tế</h3>
+        <p>Hãy nhập vào tên thành phố hoặc mã sân bay</p><input type="text" id="sanbay_ve" name="sanbay_ve"
+                                                                onkeyup="autocomplet_ve()">
+        <ul class="hien_tinh_ve"></ul>
+        <div><a href="#" class="submit" id="submit-landingture">Chọn</a></div>
+    </div>
+    <div class="clearfix"></div>
+</div>
+<div id="ui-datepicker-div" class="ui-datepicker ui-widget ui-widget-content ui-helper-clearfix ui-corner-all"></div>
+
+</body>
+</html>
