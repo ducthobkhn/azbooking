@@ -141,9 +141,9 @@
 								<th>{chitiet_td}</th>
                             </tr>
                             </thead>
-                            <tbody id="result_depart_html"></tbody>
+                            <tbody id="result_depart_html">{List_Depart}</tbody>
                         </table>
-						<img class="ajax-loader" src="{SITE-NAME}/view/default/theme/images/ajax-loader.gif" alt="" />
+                        <!-- <img class="ajax-loader" src="{SITE-NAME}/view/default/theme/images/ajax-loader.gif" alt="" /> -->
                     </div>
                 </div>
                 <div class="result col-md-12 col-xs-12 col-lg-12 col-sm-12">
@@ -182,9 +182,9 @@
 								<th>{chitiet_td}</th>
                             </tr>
                             </thead>
-                            <tbody id="result_landing_html"></tbody>
+                            <tbody id="result_landing_html">{List_Return}</tbody>
                         </table>
-						<img class="ajax-loader" src="{SITE-NAME}/view/default/theme/images/ajax-loader.gif" alt="" />
+						<!-- <img class="ajax-loader" src="{SITE-NAME}/view/default/theme/images/ajax-loader.gif" alt="" /> -->
                     </div>
                 </div>
 				<div class="bottom-offset"></div>

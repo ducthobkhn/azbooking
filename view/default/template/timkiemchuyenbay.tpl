@@ -134,9 +134,9 @@
                                     <th>{chitiet_td}</th>
                                 </tr>
                                 </thead>
-                                <tbody id="result_html"></tbody>
+                                <tbody id="result_html">{List_Depart}</tbody>
                             </table>
-                            <img class="ajax-loader" src="{SITE-NAME}/view/default/theme/images/ajax-loader.gif" alt="" />
+                            <!--<img class="ajax-loader" src="{SITE-NAME}/view/default/theme/images/ajax-loader.gif" alt="" /> -->
                         </div>
                     </div>
                     <div class="bottom-offset"></div>
