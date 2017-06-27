@@ -157,8 +157,8 @@
         <div class="col-md-7 col-sm-12 col-xs-12 ve-hot">
             <div class="tab-group">
                 <ul>
-                    <li rel="ve-noi-dia" class="active"><a href="#">{venoidia_td}</a></li>
-                    <li rel="ve-quoc-te"><a href="#">{vequocte_td}</a></li>
+                    <li rel="ve-noi-dia" class="active"><a href="#">Vé nội địa</a></li>
+                    <li rel="ve-quoc-te"><a href="#">Vé quốc tế</a></li>
                 </ul>
                 <div class="ve-hot-icon"></div>
             </div>
@@ -173,19 +173,19 @@
             </div>
         </div>
         <div class="col-md-5 col-sm-12 col-xs-12 support box">
-            <h2 class="title">{hotro_ol}</h2>
+            <h2 class="title">Hỗ trợ đặt vé trực tuyến</h2>
             <div class="support-panel call">
-                <h3>{call_ol}</h3>
+                <h3>Gọi điện thoại cho MixTourist</h3>
                 <div class="hotline-support">
-                    <p>{ol_ol}<span>{Hotlien_datve}</span></p>
+                    <p>Hotline hỗ trợ 24/7<span>043-2222-143</span></p>
                 </div>
             </div>
             <div class="support-panel chat">
-                <h3>{chat_ol}<span>{tuvan_ol}</span></h3>
+                <h3>Chát với đội ngũ chăm sóc của Mixtourist<span>Tư vấn hỗ trợ khách hàng về dịch vụ của Mixtourist</span></h3>
                 {danhmuchotro}
             </div>
             <div class="support-panel connect-social">
-                <h3>{mang_ol}</h3>
+                <h3>Hoặc kết nối với Mixtourist qua mạng xã hội</h3>
                 <ul class="social-list">
                     <li class="facebook"><a href="http://www.facebook.com/{Face}"></a></li>
                     <li class="twitter"><a href="http://www.twitter.com/{Twitter}"></a></li>
