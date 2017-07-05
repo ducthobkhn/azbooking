@@ -103,29 +103,30 @@ $headers = array(
 $url = $soapUrl;
 
 // PHP cURL  for https connection with auth
-$ch = curl_init();
-curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 1);
-curl_setopt($ch, CURLOPT_URL, $url);
-curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-//curl_setopt($ch, CURLOPT_USERPWD, $soapUser . ":" . $soapPassword); // username and password - declared at the top of the doc
-curl_setopt($ch, CURLOPT_HTTPAUTH, CURLAUTH_ANY);
-curl_setopt($ch, CURLOPT_TIMEOUT, 10);
-curl_setopt($ch, CURLOPT_POST, true);
-curl_setopt($ch, CURLOPT_POSTFIELDS, $xml_post_string); // the SOAP request
-curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+//$ch = curl_init();
+//curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 1);
+//curl_setopt($ch, CURLOPT_URL, $url);
+//curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+////curl_setopt($ch, CURLOPT_USERPWD, $soapUser . ":" . $soapPassword); // username and password - declared at the top of the doc
+//curl_setopt($ch, CURLOPT_HTTPAUTH, CURLAUTH_ANY);
+//curl_setopt($ch, CURLOPT_TIMEOUT, 30);
+//curl_setopt($ch, CURLOPT_POST, true);
+//curl_setopt($ch, CURLOPT_POSTFIELDS, $xml_post_string); // the SOAP request
+//curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
 
-// converting
-$response = curl_exec($ch);
-curl_close($ch);			// Dữ liệu trả về là kiểu stdClass Object
+//$response = curl_exec($ch);
+$response = array();
+//curl_close($ch);			// Dữ liệu trả về là kiểu stdClass Object
 
-$start= (strpos($response,'<DomesticResultResult>'));
-$end= (strpos($response,'</DomesticResultResult>'));
-$responseData = substr($response,$start+22,$end-$start-22);
+//$start= (strpos($response,'<DomesticResultResult>'));
+//$end= (strpos($response,'</DomesticResultResult>'));
+//$responseData = substr($response,$start+22,$end-$start-22);
 
 $html = $response;
 $pattern = "/<p[^>]*><\\/p[^>]*>/";
 //$pattern = "/<[^\/>]*>([\s]?)*<\/[^>]*>/";  use this pattern to remove any empty tag
-$resonseArray=(json_decode($responseData));
+//$resonseArray=(json_decode($responseData));
+$resonseArray=array();
 $arrayDepart=array();
 $arrayReturn=array();
 if(count($resonseArray)>0){

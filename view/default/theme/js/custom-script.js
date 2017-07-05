@@ -710,3 +710,27 @@ $(document).ready(function() {
         $("#" + current_id + " input").removeAttr("disabled");
     })
 });
+
+
+
+function search_noidia_custom($url,$datapost,$ele){
+    return $.ajax({
+        type: "POST",
+        url: $url,
+        data: $datapost
+    }).done(function(html){
+        if (html.search("Fatal error") > -1){
+            $('#'+$ele).html('<h1>Lỗi quá thời gian kết nối</h1>');
+        }
+        else {
+            if (html == '')
+                $('#'+$ele).html("Không tìm thấy kết quả nào" );
+            else {
+                $('#'+$ele).html(html);
+
+            }
+        }
+        $('.ajax-loader').hide();
+
+    });
+}

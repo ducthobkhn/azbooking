@@ -1,4 +1,10 @@
+<script type="text/javascript">
+    $(document).ready(function(){
+        var url = "{SITE-NAME}/controller/default/timkiem.php";
+        search_noidia_custom(url,{data_post}, "result_landing_html");
+    });
 
+</script>
 <div class="top-page top-page-detail_tt">
     <div class="container">
         <div class=" col-md-12 col-sm-12 col-xs-12 duongdan_tt">
@@ -143,7 +149,7 @@
                             </thead>
                             <tbody id="result_depart_html">{List_Depart}</tbody>
                         </table>
-                        <!-- <img class="ajax-loader" src="{SITE-NAME}/view/default/theme/images/ajax-loader.gif" alt="" /> -->
+                         <img class="ajax-loader" src="{SITE-NAME}/view/default/theme/images/ajax-loader.gif" alt="" />
                     </div>
                 </div>
                 <div class="result col-md-12 col-xs-12 col-lg-12 col-sm-12">
@@ -184,7 +190,7 @@
                             </thead>
                             <tbody id="result_landing_html">{List_Return}</tbody>
                         </table>
-						<!-- <img class="ajax-loader" src="{SITE-NAME}/view/default/theme/images/ajax-loader.gif" alt="" /> -->
+						 <img class="ajax-loader" src="{SITE-NAME}/view/default/theme/images/ajax-loader.gif" alt="" />
                     </div>
                 </div>
 				<div class="bottom-offset"></div>
@@ -211,7 +217,7 @@
     <div class="sap_xep_tt noidung_tk_tt ">
         <div class="ma-new-product-title">
             <h2>Sắp xếp</h2>
-            <script>
+            <!--<script>
                 $(document).ready(function () {
 
                     $("#price_sx").click(function () {
@@ -265,7 +271,7 @@
 
                     })
                 });
-            </script>
+            </script> -->
 
         </div>
         <p>
@@ -306,7 +312,7 @@
         </div>
 
         <p>
-            <script>
+            <!--<script>
                 $(function () {
                     $("#slider-range").slider({
                         range: true,
@@ -357,7 +363,7 @@
 
                 });
 
-            </script>
+            </script>-->
         <div class="price-box">
             <p>Chiều đi: <input type="text" id="amount" readonly style="border:0;">(h)</p>
             <div id="slider-range">

@@ -16,7 +16,7 @@ function show_timkiemchuyenbay($data = array())
 
 
     $asign['RoundTrip']=$data['RoundTrip'];
-//    $asign['data_post']=$data;
+    $asign['data_post']=json_encode($data);
 
     $asign['FromPlace']=$data['FromPlace'];
     $asign['TFromPlace']=$data['TFromPlace'];

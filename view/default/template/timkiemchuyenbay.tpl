@@ -1,3 +1,10 @@
+<script type="text/javascript">
+    $(document).ready(function(){
+        var url = "{SITE-NAME}/controller/default/timkiem.php";
+        search_noidia_custom(url,{data_post}, "result_html");
+    });
+
+</script>
 <div class="top-page top-page-detail_tt" xmlns="http://www.w3.org/1999/html">
     <div class="container">
         <div class=" col-md-12 col-sm-12 col-xs-12 duongdan_tt">
@@ -78,7 +85,7 @@
     </div>
 </div>
 </header>
-<script type="text/javascript">
+<!-- <script type="text/javascript">
     $(document).ready(function (e) {
         $deferered = Array();
         if ({RoundTrip} == "true"
@@ -93,7 +100,7 @@
         }
         $start = Date.now();
     });
-</script>
+</script> -->
 <section class="content-area container">
     <div style="padding-left: 0px;   margin-top: 25px;" class="left_sidebar col-md-9-1 col-sm-9 col-xs-12">
         <div class="main-content">
@@ -136,7 +143,7 @@
                                 </thead>
                                 <tbody id="result_html">{List_Depart}</tbody>
                             </table>
-                            <!--<img class="ajax-loader" src="{SITE-NAME}/view/default/theme/images/ajax-loader.gif" alt="" /> -->
+                            <img class="ajax-loader" src="{SITE-NAME}/view/default/theme/images/ajax-loader.gif" alt="" />
                         </div>
                     </div>
                     <div class="bottom-offset"></div>
@@ -163,7 +170,7 @@
             <div class="sap_xep_tt noidung_tk_tt ">
                 <div class="ma-new-product-title">
                     <h2>Sắp xếp</h2>
-                    <script>
+                    <!--<script>
                         $(document).ready(function () {
 
                             $("#price_sx").click(function () {
@@ -207,7 +214,7 @@
                                 $deferered.push(search_noidia('{SITE-NAME}/controller/default/timkiem_aj', {data_post}, "JetStar", "", "VN", "result_html"));
                             })
                         });
-                    </script>
+                    </script> -->
 
                 </div>
                 <p>
@@ -250,7 +257,7 @@
                 </div>
 
                 <p>
-                    <script>
+                    <!--<script>
                         $(function () {
                             $("#slider-range").slider({
                                 range: true,
@@ -275,7 +282,7 @@
                             });
                         });
 
-                    </script>
+                    </script> -->
                 <div class="price-box">
                     <p>Chiều đi: <input type="text" id="amount" readonly style="border:0;">(h)</p>
                     <div id="slider-range">
