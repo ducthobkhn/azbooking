@@ -127,45 +127,43 @@ $pattern = "/<p[^>]*><\\/p[^>]*>/";
 $resonseArray=(json_decode($responseData));
 $arrayDepart=array();
 $arrayReturn=array();
-if(count($resonseArray)>0){
-    foreach ($resonseArray as $item){
-        $RelatedFlights=($item->RelatedFlights)[0];
-        if($RelatedFlights->Class='Eco'){
-            if($item->AirlineCode=='VJ'){
-                $item->Img_hang='VietJetAir.png';
-            }else{
-                if($item->AirlineCode=='BL' || $item->AirlineCode=='JQ' ){
-                    $item->Img_hang='jetstar.png';
-                }else{
-                    $item->Img_hang='VietnamAirlines.png';
+if(count($resonseArray)>0) {
+    foreach ($resonseArray as $item) {
+        $RelatedFlights = ($item->RelatedFlights)[0];
+        if ($RelatedFlights->Class = 'Eco') {
+            if ($item->AirlineCode == 'VJ') {
+                $item->Img_hang = 'VietJetAir.png';
+            } else {
+                if ($item->AirlineCode == 'BL' || $item->AirlineCode == 'JQ') {
+                    $item->Img_hang = 'jetstar.png';
+                } else {
+                    $item->Img_hang = 'VietnamAirlines.png';
                 }
             }
-            if($RelatedFlights->StartPoint==$FromPlace){
-                $item->departDate= date("Y-m-d", strtotime(str_replace("/", "-", $_POST['DepartDate'])));
-                $item->fromPlace= $TFromPlace;
-                $item->toPlace= $TToPlace;
-                array_push($arrayDepart,$item);
-            }else  {
-                $item->fromPlace= $TFromPlace;
-                $item->toPlace= $TToPlace;
-                $item->departDate= date("Y-m-d", strtotime(str_replace("/", "-", $_POST['ReturnDate'])));
-                $item->returnDate= date("Y-m-d", strtotime(str_replace("/", "-", $_POST['DepartDate'])));
-                array_push($arrayReturn,$item);
+            if ($RelatedFlights->StartPoint == $FromPlace) {
+                $item->departDate = date("Y-m-d", strtotime(str_replace("/", "-", $_POST['DepartDate'])));
+                $item->fromPlace = $TFromPlace;
+                $item->toPlace = $TToPlace;
+                array_push($arrayDepart, $item);
+            } else {
+                $item->fromPlace = $TFromPlace;
+                $item->toPlace = $TToPlace;
+                $item->departDate = date("Y-m-d", strtotime(str_replace("/", "-", $_POST['ReturnDate'])));
+                $item->returnDate = date("Y-m-d", strtotime(str_replace("/", "-", $_POST['DepartDate'])));
+                array_push($arrayReturn, $item);
             }
         }
 
     }
 }
-print_r($response);
-exit;
 $str = '';
 foreach ($arrayDepart as $item){
     $str.=' <tr class="i-result">
-                    <td class="logo-air"><img src="<?php echo SITE_NAME ?>/view/default/theme/images/<?=$val->AirlineCode?>.png" alt="" /><p><?=$val->FlightNumber?></p></td>
-                    <td class="den-di"><p><?php echo date("H:i", strtotime($val->DepartTime)); ?><span>(<?=$val->FromPlace;?>)</span></p></td>
+                    <td class="logo-air"><img src="'.SITE_NAME.'/view/default/theme/images/'.$item->Img_hang.'" alt="" /><p>'.$item->FlightNumber.'</p></td>
+                    <td class="den-di"><p>'.date("H:i", substr($item->StartDate,stripos($item->StartDate,'Date(')+5,10)).'<span>'.$item->fromPlace.'</span></p></td>
                     <td class="thoi-gian"><span><?php echo $gio.":".$phut ?></span></td>
-                    <td class="den-di"><p><?php echo date("H:i", strtotime($val->LandingTime)); ?><span>(<?=$val->ToPlace;?>)</span></p></td>
-                    <td class="gia"><p><?=number_format($val->Price)?> <sup>vnđ</sup></p><div class="TicketPrice" style="display: none; "><?=$val->Price; ?></div></td>
+                    <td class="den-di"><p>'.date("H:i", substr($item->EndDate,stripos($item->EndDate,'Date(')+5,10)).'<span>'.$item->toPlace.'</span></p></td>
+                    <td class="gia"><p>'.number_format($item->PriceAdult).' <sup>vnđ</sup></p><div class="TicketPrice" style="display: none; ">'.$item->PriceAdult.'</div></td>
                     <td class="check-ve">
                         <input type="radio" class="check-ve-radio" id="air-<?php echo $temp; ?>" flightref="<?=$val->FlightNumber?>" name="Block<?=$RoundTrip?>" value="<?=$val->FlightNumber?>" recec="0" />
                         <label for="air-<?php echo $temp; ?>"><span></span>&nbsp</label>
