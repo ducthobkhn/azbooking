@@ -54,39 +54,33 @@ if(isset($_SESSION["Admin"]))
             header('Location: '.SITE_NAME.'/controller/admin/config.php');
         }
     }
-    if(isset($_POST["Title"])&&isset($_POST["Title_en"])&&isset($_POST["Keyword"])&&isset($_POST["Description"])&&isset($_POST["Logo"])&&isset($_POST["Icon"])&&isset($_POST["Banner_top"])&&isset($_POST["Banner"])&&isset($_POST["Name"])&&isset($_POST["Name_en"])&&isset($_POST["Address"])&&isset($_POST["Address_en"])&&isset($_POST["Phone"])&&isset($_POST["Hotline"])&&isset($_POST["Email"])&&isset($_POST["Website"])&&isset($_POST["Skype"])&&isset($_POST["Yahoo"]))
+    if(isset($_POST["Title"])&&isset($_POST["Keyword"])&&isset($_POST["Description"])&&isset($_POST["Logo"])&&isset($_POST["Logo_footer"])&&isset($_POST["Icon"])&&isset($_POST["Name"])&&isset($_POST["Address"])&&isset($_POST["Phone"])&&isset($_POST["Hotline"])&&isset($_POST["Hotlien_datve"])&&isset($_POST["Email"])&&isset($_POST["Website"])&&isset($_POST["Skype"])&&isset($_POST["Yahoo"]))
     {
        $array=$_POST;
        if(!isset($array['Id']))
        $array['Id']='0';
        if(!isset($array['Title']))
        $array['Title']='0';
-       if(!isset($array['Title_en']))
-       $array['Title_en']='0';
        if(!isset($array['Keyword']))
        $array['Keyword']='0';
        if(!isset($array['Description']))
        $array['Description']='0';
        if(!isset($array['Logo']))
        $array['Logo']='0';
+       if(!isset($array['Logo_footer']))
+       $array['Logo_footer']='0';
        if(!isset($array['Icon']))
        $array['Icon']='0';
-       if(!isset($array['Banner_top']))
-       $array['Banner_top']='0';
-       if(!isset($array['Banner']))
-       $array['Banner']='0';
        if(!isset($array['Name']))
        $array['Name']='0';
-       if(!isset($array['Name_en']))
-       $array['Name_en']='0';
        if(!isset($array['Address']))
        $array['Address']='0';
-       if(!isset($array['Address_en']))
-       $array['Address_en']='0';
        if(!isset($array['Phone']))
        $array['Phone']='0';
        if(!isset($array['Hotline']))
        $array['Hotline']='0';
+       if(!isset($array['Hotlien_datve']))
+       $array['Hotlien_datve']='0';
        if(!isset($array['Email']))
        $array['Email']='0';
        if(!isset($array['Website']))

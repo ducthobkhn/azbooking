@@ -1,0 +1,60 @@
+<?php
+class venoidia
+{
+    public $Id,$DanhMucId,$Name,$MaChuyenBay,$DiemDi,$DiemDen,$NgayDi,$Gia,$Img,$Img_hang,$NoiDung,$Title,$Keyword,$Description,$Created;
+    public function venoidia($data=array())
+    {
+    $this->Id=isset($data['Id'])?$data['Id']:'';
+    $this->DanhMucId=isset($data['DanhMucId'])?$data['DanhMucId']:'';
+    $this->Name=isset($data['Name'])?$data['Name']:'';
+    $this->MaChuyenBay=isset($data['MaChuyenBay'])?$data['MaChuyenBay']:'';
+    $this->DiemDi=isset($data['DiemDi'])?$data['DiemDi']:'';
+    $this->DiemDen=isset($data['DiemDen'])?$data['DiemDen']:'';
+    $this->NgayDi=isset($data['NgayDi'])?$data['NgayDi']:'';
+    $this->Gia=isset($data['Gia'])?$data['Gia']:'';
+    $this->Img=isset($data['Img'])?$data['Img']:'';
+    $this->Img_hang=isset($data['Img_hang'])?$data['Img_hang']:'';
+    $this->NoiDung=isset($data['NoiDung'])?$data['NoiDung']:'';
+    $this->Title=isset($data['Title'])?$data['Title']:'';
+    $this->Keyword=isset($data['Keyword'])?$data['Keyword']:'';
+    $this->Description=isset($data['Description'])?$data['Description']:'';
+    $this->Created=isset($data['Created'])?$data['Created']:'';
+          $this->encode();
+    }
+    public function encode()
+        {
+            $this->Id=addslashes($this->Id);
+            $this->DanhMucId=addslashes($this->DanhMucId);
+            $this->Name=addslashes($this->Name);
+            $this->MaChuyenBay=addslashes($this->MaChuyenBay);
+            $this->DiemDi=addslashes($this->DiemDi);
+            $this->DiemDen=addslashes($this->DiemDen);
+            $this->NgayDi=addslashes($this->NgayDi);
+            $this->Gia=addslashes($this->Gia);
+            $this->Img=addslashes($this->Img);
+            $this->Img_hang=addslashes($this->Img_hang);
+            $this->NoiDung=addslashes($this->NoiDung);
+            $this->Title=addslashes($this->Title);
+            $this->Keyword=addslashes($this->Keyword);
+            $this->Description=addslashes($this->Description);
+            $this->Created=addslashes($this->Created);
+        }
+    public function decode()
+        {
+            $this->Id=stripslashes($this->Id);
+            $this->DanhMucId=stripslashes($this->DanhMucId);
+            $this->Name=stripslashes($this->Name);
+            $this->MaChuyenBay=stripslashes($this->MaChuyenBay);
+            $this->DiemDi=stripslashes($this->DiemDi);
+            $this->DiemDen=stripslashes($this->DiemDen);
+            $this->NgayDi=stripslashes($this->NgayDi);
+            $this->Gia=stripslashes($this->Gia);
+            $this->Img=stripslashes($this->Img);
+            $this->Img_hang=stripslashes($this->Img_hang);
+            $this->NoiDung=stripslashes($this->NoiDung);
+            $this->Title=stripslashes($this->Title);
+            $this->Keyword=stripslashes($this->Keyword);
+            $this->Description=stripslashes($this->Description);
+            $this->Created=stripslashes($this->Created);
+        }
+}
