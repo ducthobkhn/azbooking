@@ -34,14 +34,14 @@ function show_header($title,$description,$keyword,$data1=array())
 function show_menu($data1=array(),$active='trangchu')
 {
     $data=array();
-    $data['config']=$data1['config'];
+    $data['config']=config_getByTop(1,'','');
     view_menu($data);
 }
 function show_footer($data1=array(),$active='trangchu')
 {
     $data=array();
     $data['mangxahoi_ft']=mangxahoi_getById(1);
-    $data['config']=$data1['config'];
+    $data['config']=config_getByTop(1,'','');
     $data['doitac']=doitac_getByTop('','','Id desc');
     $data['quocgia']=countries_getByTop('','','id desc');
 

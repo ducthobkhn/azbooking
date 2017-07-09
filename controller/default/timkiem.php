@@ -177,21 +177,21 @@ foreach ($arrayDepart as $item){
                             <tr>
                                 <td valign="top">
                                     <h4>Chuyến bay</h4>
-                                    <p><span><?=$val->AirlineCode?></span></p>
-                                    <p><span><?=$val->FlightNumber?></b></span></p>
-                                    <p>Loại vé: <span><?=$val->TicketType?></span></p>
+                                    <p><span>'.$item->AirlineCode.'</span></p>
+                                    <p><span>'.$item->FlightNumber.'</b></span></p>
+                                    <p>Loại vé: <span>'.$item->FareClass.'</span></p>
                                 </td>
                                 <td valign="top">
                                     <h4>Khởi hành</h4>
-                                    <p>Từ <span class="color-blue"><?php echo $TFromPlace;?>, </span>Việt Nam</p>
-                                    <p>Sân bay: <span><?php echo $TFromPlace;?> (<?php echo $FromPlace;?>)</span></p>
-                                    <p>Thời gian: <span class="color-blue"><?php echo date("H:i", $departTime); ?></span>, <?php echo date("d/m/Y", $departTime); ?></p>
+                                    <p>Từ <span class="color-blue">'.$item->fromPlace.', </span>Việt Nam</p>
+                                    <p>Sân bay: <span>'.$FromPlace.'</span></p>
+                                    <p>Thời gian: <span class="color-blue">'.date("H:i", substr($item->StartDate,stripos($item->StartDate,'Date(')+5,10)).'</span>, '.date("d/m/Y", substr($item->StartDate,stripos($item->StartDate,'Date(')+5,10)).'</p>
                                 </td>
                                 <td valign="top">
                                     <h4>Điểm đến</h4>
-                                    <p>Tới <span class="color-blue"><?php echo $TToPlace;?>, </span>Việt Nam</p>
-                                    <p>Sân bay: <span><?php echo $TToPlace;?> (<?php echo $ToPlace;?>)</span></p>
-                                    <p>Thời gian: <span class="color-blue"><?php echo date("H:i", $landingTime); ?></span>, <?php echo date("d/m/Y", $landingTime); ?></p>
+                                    <p>Tới <span class="color-blue">'.$item->toPlace.', </span>Việt Nam</p>
+                                    <p>Sân bay: <span>'.$ToPlace.'</span></p>
+                                    <p>Thời gian: <span class="color-blue">'.date("H:i", substr($item->EndDate,stripos($item->EndDate,'Date(')+5,10)).'</span>, '.date("d/m/Y", substr($item->EndDate,stripos($item->EndDate,'Date(')+5,10)).'</p>
                                 </td>
                             </tr>
                             </tbody>
@@ -206,16 +206,7 @@ foreach ($arrayDepart as $item){
                                 <td nowrap="" align="center" style="display:none;" class="header pb-price">Giảm giá</td>
                                 <td nowrap="" align="center" class="header pb-price">Tổng giá</td>
                             </tr>
-                            <?php
-                            if($val->AirlineCode == "VietJetAir" || $val->AirlineCode == "JetStar") {
-                                $price_total1 = 0;
-                                $price_total2 = 0;
-                                $price_total3 = 0;
-                                if($Adult) {
-                                    $Price = $val->Price;
-                                    $price_tax = ($Price*10/100)*1 + 190000*1;
-                                    $price_total1 = ($Price + $price_tax)*$Adult;
-                                    ?>
+                        
                                     <tr>
                                         <td align="center" class="pax">Người lớn</td>
                                         <td align="center" class="pax"><?php echo $Adult; ?></td>
@@ -224,86 +215,16 @@ foreach ($arrayDepart as $item){
                                         <td align="center" style="display:none;" class="pax pb-price">0 VNĐ</td>
                                         <td align="center" class="pax pb-price"><?php echo $price_total1; ?></td>
                                     </tr>
-                                <?php }
-                                if($Child) {
-                                    $Price = $val->Price;
-                                    $price_tax = ($Price*10/100)*1 + 140000*1;
-                                    $price_total2 = ($Price + $price_tax)*$Child;
-                                    ?>
-                                    <tr>
-                                        <td align="center" class="pax">Trẻ em</td>
-                                        <td align="center" class="pax"><?php echo $Child; ?></td>
-                                        <td align="center" class="pax pb-price"><?php echo $Price; ?> VNĐ</td>
-                                        <td align="center" class="pax pb-price"><?php echo $price_tax; ?></td>
-                                        <td align="center" style="display:none;" class="pax pb-price">0 VNĐ</td>
-                                        <td align="center" class="pax pb-price"><?php echo $price_total2; ?></td>
-                                    </tr>
-                                <?php } ?>
+                             
                                 <tr class="total-b">
-                                    <td align="right" class="footer" colspan="3"></>
+                                    <td align="right" class="footer" colspan="3"></td>
                                     <td align="right" class="footer">
-                                        <p>Tổng cộng </p>
+                                        <p>Tổng cộng </p></td>
                                     <td align="center" class="footer pb-price" colspan="2">
                                         <p><?php echo $price_total1 + $price_total2 + $price_total3; ?> VNĐ</p>
                                     </td>
                                 </tr>
-                            <?php }
-                            if($val->AirlineCode == "VietnamAirlines") {
-                                $price_total1 = 0;
-                                $price_total2 = 0;
-                                $price_total3 = 0;
-                                if($Adult) {
-                                    $Price = $val->Price;
-                                    $price_tax = ($Price*10/100)*1 + 190000*1;
-                                    $price_total1 = ($Price + $price_tax)*$Adult;
-                                    ?>
-                                    <tr>
-                                        <td align="center" class="pax">Người lớn</td>
-                                        <td align="center" class="pax"><?php echo $Adult; ?></td>
-                                        <td align="center" class="pax pb-price"><?php echo $Price; ?> VNĐ</td>
-                                        <td align="center" class="pax pb-price"><?php echo $price_tax; ?></td>
-                                        <td align="center" style="display:none;" class="pax pb-price">0 VNĐ</td>
-                                        <td align="center" class="pax pb-price"><?php echo $price_total1; ?></td>
-                                    </tr>
-                                <?php }
-                                if($Child) {
-                                    $Price = $val->Price;
-                                    $price_tax = ($Price*10/100)*1 + 140000*1;
-                                    $price_total2 = ($Price + $price_tax)*$Child;
-                                    ?>
-                                    <tr>
-                                        <td align="center" class="pax">Trẻ em</td>
-                                        <td align="center" class="pax"><?php echo $Child; ?></td>
-                                        <td align="center" class="pax pb-price"><?php echo $Price; ?> VNĐ</td>
-                                        <td align="center" class="pax pb-price"><?php echo $price_tax; ?></td>
-                                        <td align="center" style="display:none;" class="pax pb-price">0 VNĐ</td>
-                                        <td align="center" class="pax pb-price"><?php echo $price_total2; ?></td>
-                                    </tr>
-                                <?php }
-                                if($Infant) {
-                                    $Price = $val->Price;
-                                    $price_tax = ($Price*10/100)*1 + 140000*1;
-                                    $price_total3 = ($Price + $price_tax)*$Child;
-                                    ?>
-                                    <tr>
-                                        <td align="center" class="pax">Sơ sinh</td>
-                                        <td align="center" class="pax"><?php echo $Child; ?></td>
-                                        <td align="center" class="pax pb-price"><?php echo $Price; ?> VNĐ</td>
-                                        <td align="center" class="pax pb-price"><?php echo $price_tax; ?></td>
-                                        <td align="center" style="display:none;" class="pax pb-price">0 VNĐ</td>
-                                        <td align="center" class="pax pb-price"><?php echo $price_total2; ?></td>
-                                    </tr>
-                                <?php }?>
-                                <tr class="total-b">
-                                    <td align="right" class="footer" colspan="3"></>
-                                    <td align="right" class="footer">
-                                        <p>Tổng cộng </p>
-                                    <td align="center" class="footer pb-price" colspan="2">
-                                        <p><?php echo $price_total1 + $price_total2 + $price_total3; ?> VNĐ</p>
-                                    </td>
-                                </tr>
-                            <?php } ?>
-                            </tbody>
+                        
                         </table>
                         <table class="dieu-kien" width="90%" cellspacing="0" cellpadding="0">
                             <colgroup><col width="170">
