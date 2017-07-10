@@ -120,8 +120,7 @@ curl_close($ch);			// Dữ liệu trả về là kiểu stdClass Object
 $start= (strpos($response,'<DomesticResultResult>'));
 $end= (strpos($response,'</DomesticResultResult>'));
 $responseData = substr($response,$start+22,$end-$start-22);
-
-$html = $response;
+//$html = $response;
 $pattern = "/<p[^>]*><\\/p[^>]*>/";
 //$pattern = "/<[^\/>]*>([\s]?)*<\/[^>]*>/";  use this pattern to remove any empty tag
 $resonseArray=(json_decode($responseData));
