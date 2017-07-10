@@ -134,7 +134,7 @@
                 <a href="{SITE-NAME}"><img src="{logo}" alt="{ten}" title="{ten}" /> </a>
             </div>
             <div class="hot-line">
-                <p>{hotli} 24/7<span>{Hotlien_datve}</span></p>
+                <p>HOTLINE ĐẶT VÉ 24/7<span>043-2222-143</span></p>
             </div>
             <div class="main-menu">
                 <ul>

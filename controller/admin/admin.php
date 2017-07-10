@@ -65,15 +65,26 @@ if(isset($_SESSION["Admin"]))
        $array['Full_name']='0';
        if(!isset($array['MatKhau']))
        $array['MatKhau']='0';
-      $new_obj=new admin($array);
+       $new_obj=new admin($array);
         if($insert)
         {
+            $new_obj->MatKhau=hash_pass($_POST["MatKhau"]);
             admin_insert($new_obj);
             header('Location: '.SITE_NAME.'/controller/admin/admin.php');
         }
         else
         {
             $new_obj->Id=$_GET["Id"];
+            $data['kiemtra']=admin_getById($_GET["Id"]);
+            if($data['kiemtra'][0]->MatKhau==$_POST["MatKhau"])
+            {
+                $new_obj->MatKhau=$data['kiemtra'][0]->MatKhau;
+            }
+            else
+            {
+                $new_obj->MatKhau=hash_pass($_POST["MatKhau"]);
+            }
+
             admin_update($new_obj);
             $insert=false;
             header('Location: '.SITE_NAME.'/controller/admin/admin.php');
