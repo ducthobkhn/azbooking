@@ -57,7 +57,7 @@
                         <p>{treem_td}</p>
                         <div>
                             <a class="sub" href="#">-</a>
-                            <select class="tre-em" id="tre-em" value="0" name="child">
+                            <select class="tre-em" id="tre-em"  name="child">
                                 {Child}
                             </select>
                             <a class="sum" href="#">+</a>
@@ -68,7 +68,7 @@
                         <p>{sosinh_td}</p>
                         <div>
                             <a class="sub" href="#">-</a>
-                            <select class="so-sinh" id="so-sinh" value="0" name="infant">
+                            <select class="so-sinh" id="so-sinh"  name="infant">
                                 {Infant}
                             </select>
                             <a class="sum" href="#">+</a>
@@ -147,7 +147,7 @@
 								<th>{chitiet_td}</th>
                             </tr>
                             </thead>
-                            <tbody id="result_depart_html">{List_Depart}</tbody>
+                            <tbody id="result_depart_html"></tbody>
                         </table>
                          <img class="ajax-loader" src="{SITE-NAME}/view/default/theme/images/ajax-loader.gif" alt="" />
                     </div>
@@ -188,7 +188,7 @@
 								<th>{chitiet_td}</th>
                             </tr>
                             </thead>
-                            <tbody id="result_landing_html">{List_Return}</tbody>
+                            <tbody id="result_landing_html"></tbody>
                         </table>
 						 <img class="ajax-loader" src="{SITE-NAME}/view/default/theme/images/ajax-loader.gif" alt="" />
                     </div>

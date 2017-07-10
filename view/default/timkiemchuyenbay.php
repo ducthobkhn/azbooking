@@ -22,11 +22,13 @@ function show_timkiemchuyenbay($data = array())
     $asign['TFromPlace']=$data['TFromPlace'];
     $asign['ToPlace']=$data['ToPlace'];
     $asign['TToPlace']=$data['TToPlace'];
-    $asign['DepartDate']= $data['DepartDate'];
-    $asign['ReturnDate']= $data['ReturnDate'];
     $asign['adult']=$data['Adult'];
     $asign['child']=$data['Child'];
     $asign['infant']=$data['Infant'];
+    $asign['Adult']=$data['Adult'];
+    $asign['Child']=$data['Child'];
+    $asign['Infant']=$data['Infant'];
+
 
     $asign['chuyen_bay_td']="Chuyến bay";
     $asign['khoihanh_td']="Khởi hành";
@@ -64,32 +66,33 @@ function show_timkiemchuyenbay($data = array())
     $DepartDate = date("d/m/Y",$DepartDate);
     $ReturnDate = time() + 4*24*60*60;
     $ReturnDate = date("d/m/Y",$ReturnDate);
+    if($data['RoundTrip']=='true'){
+        $asign['RoundTripTrue'] = 'checked';
+        $asign['RoundTripFalse'] = '';
 
-    $asign['RoundTripTrue'] = 'checked';
-    $asign['RoundTripFalse'] = '';
-    $asign['FromPlace'] = 'HAN';
-    $asign['ToPlace'] = 'SGN';
-    $asign['TFromPlace'] = 'Hà Nội';
-    $asign['TToPlace'] = 'Hồ Chí Minh';
+    }else{
+        $asign['RoundTripTrue'] = '';
+        $asign['RoundTripFalse'] = 'checked';
+
+    }
+
     $asign['DepartDate'] = $DepartDate;
     $asign['ReturnDate'] = $ReturnDate;
-    $asign['Adult'] = '';
-    $asign['Child'] = '';
-    $asign['Infant'] = '';
+
     for($i=1;$i<=15;$i++) {
-        if($i == 1)
+        if($i == $data['Adult'])
             $asign['Adult'] .= "<option selected value='".$i."'>".$i."</option>";
         else
             $asign['Adult'] .= "<option value='".$i."'>".$i."</option>";
     }
     for($i=0;$i<=15;$i++) {
-        if($i == 0)
+        if($i == $data['Child'])
             $asign['Child'] .= "<option selected value='".$i."'>".$i."</option>";
         else
             $asign['Child'] .= "<option value='".$i."'>".$i."</option>";
     }
     for($i=0;$i<=15;$i++) {
-        if($i == 0)
+        if($i == $data['Infant'])
             $asign['Infant'] .= "<option selected value='".$i."'>".$i."</option>";
         else
             $asign['Infant'] .= "<option value='".$i."'>".$i."</option>";
@@ -98,13 +101,10 @@ function show_timkiemchuyenbay($data = array())
 
     if( $asign['RoundTrip'] == 'false')
     {
-        $asign['List_Depart']=print_item('list_ve',$data['arrayDepart']);
         print_template($asign, 'timkiemchuyenbay');
     }
     else
     {
-        $asign['List_Depart']=print_item('list_ve',$data['arrayDepart']);
-        $asign['List_Return']=print_item('list_ve',$data['arrayReturn']);
         print_template($asign, 'timkiemchuyenbay2');
     }
 

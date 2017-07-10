@@ -3,7 +3,7 @@ function autocomplet_di() {
     var keyword = $('#sanbay_di').val();
     if (keyword.length >= min_length) {
         $.ajax({
-            url: '/controller/default/ajax.php',
+            url: 'controller/default/ajax.php',
             type: 'POST',
             data: {keyword:keyword},
             success:function(data){
@@ -36,7 +36,7 @@ function autocomplet_ve() {
     var keyword = $('#sanbay_ve').val();
     if (keyword.length >= min_length) {
         $.ajax({
-            url: '/controller/default/ajax.php',
+            url: 'controller/default/ajax.php',
             type: 'POST',
             data: {keyword:keyword},
             success:function(data){
@@ -740,7 +740,7 @@ function search_noidia_custom($url,$datapost,$ele){
             else {
                 var start = html.indexOf('[depart] =>');
                 var end = html.indexOf('[return] =>');
-                $('#'+$ele).html(html.substr(start,end-start));
+                $('#'+$ele).html(html.substr(start+11,end-start-11));
 
             }
         }
@@ -763,8 +763,8 @@ function search_noidia_custom_return($url,$datapost,$ele1,$ele2){
             else {
                 var start = html.indexOf('[depart] =>');
                 var end = html.indexOf('[return] =>');
-                $('#'+$ele1).html(html.substr(start,end-start));
-                $('#'+$ele2).html(html.substr(end,html.length-end));
+                $('#'+$ele1).html(html.substr(start+11,end-start-11));
+                $('#'+$ele2).html(html.substr(end+11,html.length-end-11));
 
             }
         }
