@@ -13,29 +13,29 @@ require_once DIR . '/controller/default/public.php';
 require_once DIR . '/common/upload_image.php';
 require_once(DIR . "/common/hash_pass.php");
 $data = array();
-if (isset($_POST['RoundTrip']) && $_POST['RoundTrip'] == 'true') {
-    $RoundTrip = "true";
-    $FromPlace = $_POST['FromPlace'];
-    $TFromPlace = $_POST['TFromPlace'];
-    $ToPlace = $_POST['ToPlace'];
-    $TToPlace = $_POST['TToPlace'];
-    $DepartDate = date("Y-m-d", strtotime(str_replace("/", "-", $_POST['DepartDate'])));
-    $ReturnDate = ($_POST['ReturnDate'] && $_POST['ReturnDate'] != "") ? date("Y-m-d", strtotime(str_replace("/", "-", $_POST['ReturnDate']))) : "";
-    $Adult = $_POST['adult'];
-    $Child = $_POST['child'];
-    $Infant = $_POST['infant'];
-} else {
-    $RoundTrip = "false";
-    $FromPlace = $_POST['FromPlace'];
-    $TFromPlace = $_POST['TFromPlace'];
-    $ToPlace = $_POST['ToPlace'];
-    $TToPlace = $_POST['TToPlace'];
-    $DepartDate = date("Y-m-d", strtotime(str_replace("/", "-", $_POST['DepartDate'])));
-    $ReturnDate = '';
-    $Adult = $_POST['adult'];
-    $Child = $_POST['child'];
-    $Infant = $_POST['infant'];
-}
+//if (isset($_POST['RoundTrip']) && $_POST['RoundTrip'] == 'true') {
+//    $RoundTrip = "true";
+//    $FromPlace = $_POST['FromPlace'];
+//    $TFromPlace = $_POST['TFromPlace'];
+//    $ToPlace = $_POST['ToPlace'];
+//    $TToPlace = $_POST['TToPlace'];
+//    $DepartDate = date("Y-m-d", strtotime(str_replace("/", "-", $_POST['DepartDate'])));
+//    $ReturnDate = ($_POST['ReturnDate'] && $_POST['ReturnDate'] != "") ? date("Y-m-d", strtotime(str_replace("/", "-", $_POST['ReturnDate']))) : "";
+//    $Adult = $_POST['adult'];
+//    $Child = $_POST['child'];
+//    $Infant = $_POST['infant'];
+//} else {
+//    $RoundTrip = "false";
+//    $FromPlace = $_POST['FromPlace'];
+//    $TFromPlace = $_POST['TFromPlace'];
+//    $ToPlace = $_POST['ToPlace'];
+//    $TToPlace = $_POST['TToPlace'];
+//    $DepartDate = date("Y-m-d", strtotime(str_replace("/", "-", $_POST['DepartDate'])));
+//    $ReturnDate = '';
+//    $Adult = $_POST['adult'];
+//    $Child = $_POST['child'];
+//    $Infant = $_POST['infant'];
+//}
 
 //print_r($RoundTrip);
 //print_r($FromPlace);
@@ -70,7 +70,7 @@ $xml_post_string = "<x:Envelope xmlns:x=\"http://schemas.xmlsoap.org/soap/envelo
 </x:Envelope>";
 
 $headers = array(
-    "Content-type: text/xml;charset=\"utf-8\"",
+    "Content-type: text/xml;charset=utf-8",
     "SOAPAction:  http://tempuri.org/DomesticResult",
 ); //SOAPAction: your op URL
 
@@ -87,13 +87,11 @@ curl_setopt($ch, CURLOPT_TIMEOUT, 10);
 curl_setopt($ch, CURLOPT_POST, true);
 curl_setopt($ch, CURLOPT_POSTFIELDS, $xml_post_string); // the SOAP request
 curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
-
+                        
 // converting
 $response = curl_exec($ch);
 curl_close($ch);
-
-print_r(($response));
-exit;
+$data['response']= $response;
 show_header('', '', '');
 show_menu($data, 'trangchu');
 show_index($data);
