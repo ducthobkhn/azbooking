@@ -711,6 +711,18 @@ $(document).ready(function() {
     })
 });
 
+$(document).on( "click", ".chi-tiet", function() {
+    if($(this).attr('attr')=='open'){
+        $(this).removeClass('viewed');
+        $(this).parent().next().css('display','none');
+        $(this).attr('attr','close');
+    }else{
+        $(this).addClass('viewed');
+        $(this).parent().next().css('display','table-row');
+        $(this).attr('attr','open');
+    }
+});
+
 
 
 function search_noidia_custom($url,$datapost,$ele){
@@ -726,7 +738,33 @@ function search_noidia_custom($url,$datapost,$ele){
             if (html == '')
                 $('#'+$ele).html("Không tìm thấy kết quả nào" );
             else {
-                $('#'+$ele).html(html);
+                var start = html.indexOf('[depart] =>');
+                var end = html.indexOf('[return] =>');
+                $('#'+$ele).html(html.substr(start,end-start));
+
+            }
+        }
+        $('.ajax-loader').hide();
+
+    });
+}
+function search_noidia_custom_return($url,$datapost,$ele1,$ele2){
+    return $.ajax({
+        type: "POST",
+        url: $url,
+        data: $datapost
+    }).done(function(html){
+        if (html.search("Fatal error") > -1){
+            $('#'+$ele1).html('<h1>Lỗi quá thời gian kết nối</h1>');
+        }
+        else {
+            if (html == '')
+                $('#'+$ele1).html("Không tìm thấy kết quả nào" );
+            else {
+                var start = html.indexOf('[depart] =>');
+                var end = html.indexOf('[return] =>');
+                $('#'+$ele1).html(html.substr(start,end-start));
+                $('#'+$ele2).html(html.substr(end,html.length-end));
 
             }
         }

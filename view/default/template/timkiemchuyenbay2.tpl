@@ -1,7 +1,7 @@
 <script type="text/javascript">
     $(document).ready(function(){
         var url = "{SITE-NAME}/controller/default/timkiem.php";
-        search_noidia_custom(url,{data_post}, "result_landing_html");
+        search_noidia_custom_return(url,{data_post}, "result_depart_html","result_landing_html");
     });
 
 </script>
@@ -87,7 +87,7 @@
 </header>
 
 
-<script type="text/javascript">
+<!--<script type="text/javascript">
     $(document).ready(function(e) {
         $deferered = Array();
         if({RoundTrip} == true) {
@@ -102,7 +102,7 @@
     });
 </script>
 
-
+-->
 <section class="content-area container">
 
 
