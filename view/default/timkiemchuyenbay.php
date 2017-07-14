@@ -98,15 +98,19 @@ function show_timkiemchuyenbay($data = array())
             $asign['Infant'] .= "<option value='".$i."'>".$i."</option>";
     }
     $dataarray = null;
-
-    if( $asign['RoundTrip'] == 'false')
-    {
+    if( $data['Type']=='International'){
         print_template($asign, 'timkiemchuyenbay');
+    }else{
+        if( $asign['RoundTrip'] == 'false')
+        {
+            print_template($asign, 'timkiemchuyenbay');
+        }
+        else
+        {
+            print_template($asign, 'timkiemchuyenbay2');
+        }
     }
-    else
-    {
-        print_template($asign, 'timkiemchuyenbay2');
-    }
+
 
 
 

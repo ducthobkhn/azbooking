@@ -139,12 +139,18 @@ if ($RoundTrip == 'true') {
         </x:Envelope>";
     }
 }
+if ($Type == 'Domestic') {
+    $headers = array(
+        "Content-type: text/xml;charset=\"utf-8\"",
+        "SOAPAction:  http://tempuri.org/DomesticResult",
+    );
+}else{
+    $headers = array(
+        "Content-type: text/xml;charset=\"utf-8\"",
+        "SOAPAction:  http://tempuri.org/InternationalResult",
+    );
+}
 
-
-$headers = array(
-    "Content-type: text/xml;charset=\"utf-8\"",
-    "SOAPAction:  http://tempuri.org/DomesticResult",
-); //SOAPAction: your op URL
 
 $url = $soapUrl;
 //// PHP cURL  for https connection with auth
@@ -162,46 +168,54 @@ curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
 $response = curl_exec($ch);
 curl_close($ch);            // Dữ liệu trả về là kiểu stdClass Object
 
-$start = (strpos($response, '<DomesticResultResult>'));
-$end = (strpos($response, '</DomesticResultResult>'));
-$responseData = substr($response, $start + 22, $end - $start - 22);
+if ($Type == 'Domestic') {
+    $start = (strpos($response, '<DomesticResultResult>'));
+    $end = (strpos($response, '</DomesticResultResult>'));
+    $responseData = substr($response, $start + 22, $end - $start - 22);
+}else{
+    $start = (strpos($response, '<InternationalResultResult>'));
+    $end = (strpos($response, '</InternationalResultResult>'));
+    $responseData = substr($response, $start + 27, $end - $start - 27);
+}
+
 $pattern = "/<p[^>]*><\\/p[^>]*>/";
 //$pattern = "/<[^\/>]*>([\s]?)*<\/[^>]*>/";  use this pattern to remove any empty tag
 $resonseArray = (json_decode($responseData));
 $arrayDepart = array();
 $arrayReturn = array();
-if (count($resonseArray) > 0) {
-    foreach ($resonseArray as $item) {
-        $RelatedFlights = ($item->RelatedFlights)[0];
-        if ($RelatedFlights->Class == 'Eco') {
-            if ($item->AirlineCode == 'VJ') {
-                $item->Img_hang = 'VietJetAir.png';
-            } else {
-                if ($item->AirlineCode == 'BL' || $item->AirlineCode == 'JQ') {
-                    $item->Img_hang = 'jetstar.png';
+if ($Type == 'Domestic') {
+    if (count($resonseArray) > 0) {
+        foreach ($resonseArray as $item) {
+            $RelatedFlights = ($item->RelatedFlights)[0];
+            if ($RelatedFlights->Class == 'Eco') {
+                if ($item->AirlineCode == 'VJ') {
+                    $item->Img_hang = 'VietJetAir.png';
                 } else {
-                    $item->Img_hang = 'VietnamAirlines.png';
+                    if ($item->AirlineCode == 'BL' || $item->AirlineCode == 'JQ') {
+                        $item->Img_hang = 'jetstar.png';
+                    } else {
+                        $item->Img_hang = 'VietnamAirlines.png';
+                    }
+                }
+                if ($RelatedFlights->StartPoint == $FromPlace) {
+                    $item->departDate = date("Y-m-d", strtotime(str_replace("/", "-", $_POST['DepartDate'])));
+                    $item->fromPlace = $TFromPlace;
+                    $item->toPlace = $TToPlace;
+                    array_push($arrayDepart, $item);
+                } else {
+                    $item->fromPlace = $TFromPlace;
+                    $item->toPlace = $TToPlace;
+                    $item->departDate = date("Y-m-d", strtotime(str_replace("/", "-", $_POST['ReturnDate'])));
+                    $item->returnDate = date("Y-m-d", strtotime(str_replace("/", "-", $_POST['DepartDate'])));
+                    array_push($arrayReturn, $item);
                 }
             }
-            if ($RelatedFlights->StartPoint == $FromPlace) {
-                $item->departDate = date("Y-m-d", strtotime(str_replace("/", "-", $_POST['DepartDate'])));
-                $item->fromPlace = $TFromPlace;
-                $item->toPlace = $TToPlace;
-                array_push($arrayDepart, $item);
-            } else {
-                $item->fromPlace = $TFromPlace;
-                $item->toPlace = $TToPlace;
-                $item->departDate = date("Y-m-d", strtotime(str_replace("/", "-", $_POST['ReturnDate'])));
-                $item->returnDate = date("Y-m-d", strtotime(str_replace("/", "-", $_POST['DepartDate'])));
-                array_push($arrayReturn, $item);
-            }
+
         }
-
     }
-}
-$str = '';
-foreach ($arrayDepart as $item) {
-    $str .= ' <tr class="i-result">
+    $str = '';
+    foreach ($arrayDepart as $item) {
+        $str .= ' <tr class="i-result">
                     <td class="logo-air"><img src="' . SITE_NAME . '/view/default/theme/images/' . $item->Img_hang . '" alt="" /><p>' . $item->FlightNumber . '</p></td>
                     <td class="den-di"><p>' . date("H:i", substr($item->StartDate, stripos($item->StartDate, 'Date(') + 5, 10)) . '<span>' . $item->fromPlace . '</span></p></td>
                     <td class="thoi-gian"><span><?php echo $gio.":".$phut ?></span></td>
@@ -306,11 +320,11 @@ foreach ($arrayDepart as $item) {
                             </tbody></table>
                     </td>
                 </tr>';
-}
+    }
 
-$str1 = '';
-foreach ($arrayReturn as $item) {
-    $str1 .= ' <tr class="i-result">
+    $str1 = '';
+    foreach ($arrayReturn as $item) {
+        $str1 .= ' <tr class="i-result">
                     <td class="logo-air"><img src="' . SITE_NAME . '/view/default/theme/images/' . $item->Img_hang . '" alt="" /><p>' . $item->FlightNumber . '</p></td>
                     <td class="den-di"><p>' . date("H:i", substr($item->StartDate, stripos($item->StartDate, 'Date(') + 5, 10)) . '<span>' . $item->fromPlace . '</span></p></td>
                     <td class="thoi-gian"><span><?php echo $gio.":".$phut ?></span></td>
@@ -415,7 +429,11 @@ foreach ($arrayReturn as $item) {
                             </tbody></table>
                     </td>
                 </tr>';
-}
+    }
 
-$array = array('depart' => $str, 'return' => $str1);
-print_r($array);
+    $array = array('depart' => $str, 'return' => $str1);
+    print_r($array);
+}else{
+    print_r($resonseArray);
+    exit;
+}
