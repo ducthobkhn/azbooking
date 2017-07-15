@@ -1,3 +1,10 @@
+<script type="text/javascript">
+    $(document).ready(function(){
+        var url = "{SITE-NAME}/controller/default/timkiem.php";
+        search_noidia_custom(url,{data_post}, "result_html");
+    });
+
+</script>
 <div class="top-page top-page-detail_tt" xmlns="http://www.w3.org/1999/html">
     <div class="container">
         <div class=" col-md-12 col-sm-12 col-xs-12 duongdan_tt">
@@ -50,7 +57,7 @@
                         <p>{treem_td}</p>
                         <div>
                             <a class="sub" href="#">-</a>
-                            <select class="tre-em" id="tre-em" value="0" name="child">
+                            <select class="tre-em" id="tre-em"  name="child">
                                 {Child}
                             </select>
                             <a class="sum" href="#">+</a>
@@ -61,7 +68,7 @@
                         <p>{sosinh_td}</p>
                         <div>
                             <a class="sub" href="#">-</a>
-                            <select class="so-sinh" id="so-sinh" value="0" name="infant">
+                            <select class="so-sinh" id="so-sinh"  name="infant">
                                 {Infant}
                             </select>
                             <a class="sum" href="#">+</a>
@@ -78,7 +85,7 @@
     </div>
 </div>
 </header>
-<script type="text/javascript">
+<!-- <script type="text/javascript">
     $(document).ready(function (e) {
         $deferered = Array();
         if ({RoundTrip} == "true"
@@ -93,7 +100,7 @@
         }
         $start = Date.now();
     });
-</script>
+</script> -->
 <section class="content-area container">
     <div style="padding-left: 0px;   margin-top: 25px;" class="left_sidebar col-md-9-1 col-sm-9 col-xs-12">
         <div class="main-content">
@@ -121,15 +128,16 @@
                         <!-- <div class="date-change">
                              <p>15/6/2015</p>
                          </div>-->
-                        <div class="list-result result-depart list-ve-quoc-te">
+                        <div class="list-result result-depart">
                             <table class="list-ve" width="100%" cellspacing="0" cellpadding="0">
                                 <thead>
                                 <tr>
-                                    <th>{chuyen_bay_td}</th>
+
+
+                                     <th>{chuyen_bay_td}</th>
                                     <th>{khoihanh_td}</th>
-                                    <th></th>
-                                    <th>{den_td}</th>
                                     <th>{giave_td}</th>
+                                    <th>Điểm dừng</th>
                                     <th>{chitiet_td}</th>
                                 </tr>
                                 </thead>
@@ -144,7 +152,8 @@
                     <div class="container">
                         <div class="row">
                             <div class="col-md-9 col-sm-9 col-xs-12 send">
-                                <label for="dat-ve"><input name="bntDatVe" id="dat-ve" type="submit"  value="Đặt vé ngay"/></label>
+                                <label for="dat-ve">
+                                    <input name="bntDatVe" id="dat-ve" type="submit"  value="Đặt vé ngay"/></label>
                                 <div class="clearfix"></div>
                             </div>
                         </div>
@@ -161,7 +170,7 @@
             <div class="sap_xep_tt noidung_tk_tt ">
                 <div class="ma-new-product-title">
                     <h2>Sắp xếp</h2>
-                    <script>
+                    <!--<script>
                         $(document).ready(function () {
 
                             $("#price_sx").click(function () {
@@ -205,7 +214,7 @@
                                 $deferered.push(search_noidia('{SITE-NAME}/controller/default/timkiem_aj', {data_post}, "JetStar", "", "VN", "result_html"));
                             })
                         });
-                    </script>
+                    </script> -->
 
                 </div>
                 <p>
@@ -248,7 +257,7 @@
                 </div>
 
                 <p>
-                    <script>
+                    <!--<script>
                         $(function () {
                             $("#slider-range").slider({
                                 range: true,
@@ -273,24 +282,25 @@
                             });
                         });
 
-                    </script>
-                <div class="price-box">
-                    <p>Chiều đi: <input type="text" id="amount" readonly style="border:0;">(h)</p>
-                    <div id="slider-range">
-                    </div>
-                    <p class="rule_tt">
-                        <span class="h-6">0h</span>
-                        <span class="h-4">6h</span>
-                        <span class="h-4">10h</span>
-                        <span class="h-4">14h</span>
-                        <span class="h-4">18h</span>
-                        <span class="h-6 last">24h</span>
-                    </p>
+                    </script> -->
+                    <div class="price-box">
+                <p>Chiều đi: <input type="text" id="amount" readonly style="border:0;">(h)</p>
+                <div id="slider-range">
                 </div>
+                <p class="rule_tt">
+                    <span class="h-6">0h</span>
+                    <span class="h-4">6h</span>
+                    <span class="h-4">10h</span>
+                    <span class="h-4">14h</span>
+                    <span class="h-4">18h</span>
+                    <span class="h-6 last">24h</span>
                 </p>
             </div>
-            <div class="clearfix"></div>
+            </p>
         </div>
-        <div class="fb-page" data-href="https://www.facebook.com/facebook" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true" data-show-posts="false"><div class="fb-xfbml-parse-ignore"><blockquote cite="https://www.facebook.com/facebook"><a href="https://www.facebook.com/facebook">Facebook</a></blockquote></div></div>
+        <div class="clearfix"></div>
+    </div>
+    <div id="chi-tiet-ve"></div>
+    <div class="fb-page" data-href="https://www.facebook.com/facebook" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true" data-show-posts="false"><div class="fb-xfbml-parse-ignore"><blockquote cite="https://www.facebook.com/facebook"><a href="https://www.facebook.com/facebook">Facebook</a></blockquote></div></div>
     </div>
 

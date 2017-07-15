@@ -764,7 +764,7 @@ function search_noidia_custom_return($url,$datapost,$ele1,$ele2){
                 var start = html.indexOf('[depart] =>');
                 var end = html.indexOf('[return] =>');
                 $('#'+$ele1).html(html.substr(start+11,end-start-11));
-                $('#'+$ele2).html(html.substr(end+11,html.length-end-11));
+                $('#'+$ele2).html(html.substr(end+11,html.length-end-13));
 
             }
         }

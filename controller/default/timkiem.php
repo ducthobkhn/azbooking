@@ -434,6 +434,89 @@ if ($Type == 'Domestic') {
     $array = array('depart' => $str, 'return' => $str1);
     print_r($array);
 }else{
-    print_r($resonseArray);
-    exit;
+    $array_internation=array();
+    foreach ($resonseArray as $item){
+        $ItineraryFlights = ($item->ItineraryFlights)[0];
+//        if($ItineraryFlights->AirlineCode=="VJ" || $ItineraryFlights->AirlineCode=="BL" || $ItineraryFlights->AirlineCode=="JQ"||$ItineraryFlights->AirlineCode=="VN"){
+//            if ($ItineraryFlights->AirlineCode == 'VJ') {
+//                $item->Img_hang = 'VietJetAir.png';
+//            } else {
+//                if ($ItineraryFlights->AirlineCode == 'BL' || $ItineraryFlights->AirlineCode == 'JQ') {
+//                    $item->Img_hang = 'jetstar.png';
+//                } else {
+//                    $item->Img_hang = 'VietnamAirlines.png';
+//                }
+//            }
+//
+//        }
+
+        if($ItineraryFlights->StopNum===0 || $ItineraryFlights->StopNum==1){
+            $RelatedItineraryFlights= $ItineraryFlights->RelatedItineraryFlights[0];
+            $str.='<tr class="i-result">
+                    <td><span>' . $RelatedItineraryFlights->AirlineCode . '</span></td>
+                    <td class="den-di"><p>' . date("H:i", substr($RelatedItineraryFlights->StartDate, stripos($RelatedItineraryFlights->StartDate, 'Date(') + 5, 10)) . '<span>' . $RelatedItineraryFlights->StartPoint . '</span></p></td>                              
+                    <td class="gia"><p>' . number_format($item->FareAdult) . ' <sup>vnđ</sup></p></td>';
+                    if($ItineraryFlights->StopNum===0 ){
+                        $str.=' <td>Bay thẳng</td>';
+                    }else{
+                        $str.=' <td>1 điểm dừng</td>';
+                    }
+                      $str.=' <td class="check-ve">
+                            <input type="radio" class="check-ve-radio" id="air-VJ123" name="Blocktrue" value="VJ123" recec="0">
+                            <label for="air-VJ123"><span></span>&nbsp;</label>
+                        </td>
+                        <td class="chi-tiet " attr="close"><a class="icon-detail" style="cursor:pointer">Xem chi tiết</a></td>
+                    </tr>';
+            if($ItineraryFlights->StopNum==0){
+                $RelatedItineraryFlights= $ItineraryFlights->RelatedItineraryFlights[0];
+                $str.='<tr style="" class="flight-info-detail">
+                    <td class="flight-detail-content" colspan="8">
+                       
+                        <table width="100%" class="price-break">
+                            <tbody>
+                            <tr class="title-b">
+                                <td class="den-di"><p>Thời gian từ :' . date("H:i d/m/Y", substr($RelatedItineraryFlights->StartDate, stripos($RelatedItineraryFlights->StartDate, 'Date(') + 5, 10)) . '<span> ' . $RelatedItineraryFlights->StartPoint . '</span></p></td>
+                                <td class="den-di"><p>Thời gian đến :' . date("H:i d/m/Y", substr($RelatedItineraryFlights->EndDate, stripos($RelatedItineraryFlights->EndDate, 'Date(') + 5, 10)) . '<span> ' . $RelatedItineraryFlights->EndPoint . '</span></p></td>
+                                <td><span>' . $RelatedItineraryFlights->AirlineCode . '</span> <p><span>' . $RelatedItineraryFlights->FlightNumber . '</b></span></p></td>                              
+                            </tr>                                                                
+                        </table>
+                       
+                       
+                    </td>
+                </tr>';
+            }else{
+                $RelatedItineraryFlights= $ItineraryFlights->RelatedItineraryFlights[0];
+                $RelatedItineraryFlights1= $ItineraryFlights->RelatedItineraryFlights[1];
+                $str.='<tr style="" class="flight-info-detail">
+                    <td class="flight-detail-content" colspan="8">
+                       
+                        <table width="100%" class="price-break">
+                            <tbody>
+                            <td class="title-b">
+                                <td class="den-di"><p>Thời gian từ : ' . date("H:i d/m/Y", substr($RelatedItineraryFlights->StartDate, stripos($RelatedItineraryFlights->StartDate, 'Date(') + 5, 10)) . '<span> ' . $RelatedItineraryFlights->StartPoint . '</span></p></td>
+                                <td class="den-di"><p>Thời gian đến : ' . date("H:i d/m/Y", substr($RelatedItineraryFlights->EndDate, stripos($RelatedItineraryFlights->EndDate, 'Date(') + 5, 10)) . '<span> ' . $RelatedItineraryFlights->EndPoint . '</span></p></td>
+                               <td><span>' . $RelatedItineraryFlights->AirlineCode . '</span> <p><span>' . $RelatedItineraryFlights->FlightNumber . '</b></span></p></td>                             
+                            </tr>                                                                
+                        </table>
+                        <table width="100%" class="price-break">
+                            <tbody>
+                            <tr class="title-b">
+                                <td class="den-di"><p>Thời gian từ :' . date("H:i d/m/Y", substr($RelatedItineraryFlights1->StartDate, stripos($RelatedItineraryFlights1->StartDate, 'Date(') + 5, 10)) . '<span> ' . $RelatedItineraryFlights1->StartPoint . '</span></p></td>
+                                <td class="den-di"><p>Thời gian đến :' . date("H:i d/m/Y", substr($RelatedItineraryFlights1->EndDate, stripos($RelatedItineraryFlights1->EndDate, 'Date(') + 5, 10)) . '<span> ' . $RelatedItineraryFlights1->EndPoint . '</span></p></td>
+                               <td><span>' . $RelatedItineraryFlights1->AirlineCode . '</span> <p><span>' . $RelatedItineraryFlights1->FlightNumber . '</b></span></p></td>                              
+                            </tr>                                                                
+                        </table>
+                       
+                    </td>
+                </tr>';
+            }
+
+
+        }
+    }
+
+
+    $array = array('depart' => $str, 'return' => '');
+    print_r($array);
+
 }

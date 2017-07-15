@@ -99,7 +99,7 @@ function show_timkiemchuyenbay($data = array())
     }
     $dataarray = null;
     if( $data['Type']=='International'){
-        print_template($asign, 'timkiemchuyenbay');
+        print_template($asign, 'timkiemchuyenbayquocte');
     }else{
         if( $asign['RoundTrip'] == 'false')
         {

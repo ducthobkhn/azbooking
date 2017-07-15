@@ -6,21 +6,21 @@
                 <form class="form" action="{SITE-NAME}/tim-kiem-chuyen-bay/" method="post">
                     <div class="fields row">
                         <div class="col-md-12 col-sm-12">
-                            <input type="radio" name="RoundTrip" value="true" id="ve-khu-hoi" checked />
+                            <input type="radio" name="RoundTrip" value="true" id="ve-khu-hoi"  />
                             <label for="ve-khu-hoi"><span></span>Vé khứ hồi</label>
-                            <input type="radio" name="RoundTrip" value="false" id="ve-mot-chieu"  />
+                            <input type="radio" name="RoundTrip" value="false" id="ve-mot-chieu" checked />
                             <label for="ve-mot-chieu"><span></span>Vé một chiều</label>
                         </div>
                     </div>
                     <div class="row row-padding-10">
                         <div class="col-md-4 col-sm-12 chon-dia-diem">
                             <p>Điểm đi</p>
-                            <input type="text" class="chuyen-bay chieu-di" id="chieu-di" value="{TFromPlace}" name="TFromPlace" />
+                            <input type="text" class="chuyen-bay chieu-di" id="chieu-di" value="{TFromPlace}" name="TFromPlace" style="cursor: pointer"/>
                             <input id="hide-chieu-di" type="hidden" name="FromPlace" value="{FromPlace}"/>
                         </div>
                         <div class="col-md-4 col-sm-12">
                             <p>Điểm đến</p>
-                            <input type="text" class="chuyen-bay chieu-ve" id="chieu-ve" value="{TToPlace}" name="TToPlace" />
+                            <input type="text" class="chuyen-bay chieu-ve" id="chieu-ve" value="{TToPlace}" name="TToPlace" style="cursor: pointer"/>
                             <input id="hide-chieu-ve" type="hidden" name="ToPlace" value="{ToPlace}"/>
                         </div>
                         <div class="col-md-4 col-sm-12 date">
